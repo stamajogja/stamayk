@@ -75,6 +75,17 @@
       .menu-toggle { display: block; }
     }
 
+    /* Center form card */
+#form-mode, #brosur-mode {
+  max-width: 100%;
+  margin: 0 auto;      /* biar selalu center */
+}
+
+/* Hapus margin tambahan supaya tidak geser */
+#form-mode {
+  margin-top: 0 !important;
+}
+
     /* hero */
     .hero{padding:48px 0 28px; display:block}
     .hero-inner{display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap}
@@ -188,7 +199,7 @@
         </div>
 
         <!-- Form card (hidden initially) -->
-        <div class="card hidden" id="form-mode" style="margin-top:18px">
+        <div class="card hidden" id="form-mode">
           <h3 class="title">Formulir Pendaftaran (PPDB)</h3>
           <p class="muted">Isi formulir berikut. Ketika selesai Anda dapat mengunduh salinan atau menunggu konfirmasi panitia.</p>
 
