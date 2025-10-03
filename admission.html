@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SMA Santa Maria Yogyakarta (STAMA) — Penerimaan</title>
+  <meta name="description" content="Informasi pendaftaran & formulir online PPDB SMA Santa Maria Yogyakarta." />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --blue:#0b4f7a;
+      --gold:#d4b05a;
+      --green:#4b9a6a;
+      --ivory:#fbf7f0;
+      --muted:#6b7785;
+      --max-width:1100px;
+      --glass: rgba(255,255,255,0.06);
+      --card-shadow: 0 6px 18px rgba(6,24,48,0.06);
+    }
+    *{box-sizing:border-box}
+    body{font-family: 'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; color:#123; background:var(--ivory);}
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--max-width); margin:0 auto; padding:0 20px}
+
+    /* header */
+    header{
+      background:
+        linear-gradient(180deg, rgba(11,79,122,0.86) 0%, rgba(11,79,122,0.72) 45%, rgba(11,79,122,0.60) 100%),
+        url('imgslanding/headerbackg.webp');
+      background-repeat:no-repeat;
+      background-position:center;
+      background-size:cover;
+      background-blend-mode: overlay;
+      color:var(--ivory);
+      padding-bottom:18px;
+    }
+    .topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{ width:56px; height:56px; border-radius:8px; background:var(--ivory); display:flex; align-items:center; justify-content:center; box-shadow:0 4px 14px rgba(2,18,32,0.25); overflow:hidden;}
+    .logo img{width:80%;height:80%;object-fit:contain;display:block}
+    .brand h1{font-family:'Merriweather', serif; font-size:18px; margin:0}
+    nav ul{display:flex;gap:14px;list-style:none;margin:0;padding:0}
+    nav a{padding:8px 14px;border-radius:8px;font-weight:600}
+    nav a.cta{background:var(--gold);color:var(--blue)}
+
+    .lang-toggle{display:flex; gap:8px; align-items:center}
+    .lang-btn{background:transparent;border:2px solid rgba(255,255,255,0.12);color:var(--ivory);padding:6px 10px;border-radius:8px;cursor:pointer;font-weight:700}
+    .lang-btn.active{background:var(--ivory); color:var(--blue); border-color:transparent}
+
+    /* hero */
+    .hero{padding:48px 0 28px; display:block}
+    .hero-inner{display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    .hero-left{flex:1;min-width:260px}
+    .eyebrow{display:inline-block;background:var(--glass);padding:6px 10px;border-radius:999px;font-size:13px;margin-bottom:12px}
+    .headline{font-family:'Merriweather', serif;font-size:34px;color:var(--gold);margin:0 0 12px}
+    .sub{color:rgba(255,255,255,0.95);max-width:680px;margin-bottom:18px}
+    .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+
+    .hero-right{min-width:260px; max-width:520px; border-radius:12px; background:rgba(255,255,255,0.04); padding:12px; box-shadow:0 8px 22px rgba(2,18,32,0.28)}
+    .hero-card h4{margin:0 0 8px;color:var(--ivory)}
+    .hero-card p{color:rgba(255,255,255,0.9);margin:0;font-size:14px}
+
+    /* layout */
+    main{padding:28px 0}
+    .grid{display:grid;grid-template-columns:2fr 1fr;gap:22px}
+    .card{background:white;padding:18px;border-radius:12px;box-shadow:var(--card-shadow)}
+    .title{font-family:'Merriweather', serif;font-size:28px;color:var(--blue);margin:0 0 12px}
+    .muted{color:var(--muted)}
+    .lead{color:var(--muted);font-size:15px;line-height:1.6}
+
+    /* brochure viewer */
+    .brosur-frame{
+      width:100%; height:520px; border:1px solid rgba(6,24,48,0.06); border-radius:8px; overflow:hidden;
+    }
+    .hidden{display:none !important}
+
+    /* responsive */
+    @media (max-width:900px){
+      .grid{grid-template-columns:1fr}
+      .hero-inner{flex-direction:column-reverse}
+      .headline{font-size:28px}
+      .hero-right{max-width:100%}
+      .brosur-frame{height:420px}
+    }
+
+    /* small helpers */
+    .muted-small{color:var(--muted);font-size:13px}
+    .contact-link{display:inline-flex;gap:8px;align-items:center}
+    .wa-badge{background:#25D366;color:white;padding:6px 10px;border-radius:8px;font-weight:700}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"><img src="icons/logostamayk.svg" alt="STAMA logo"></div>
+        <div>
+          <h1 data-key="brand_name">SMA Santa Maria (STAMA)</h1>
+          <div class="muted" data-key="brand_tag">Yogyakarta — Pendidikan, Iman, Komunitas</div>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:18px">
+        <nav aria-label="Primary navigation">
+          <ul>
+            <li><a href="index.html" data-key="nav_home">Beranda</a></li>
+            <li><a href="index.html#vision" data-key="nav_vision">Visi & Misi</a></li>
+            <li><a href="index.html#activities" data-key="nav_activities">Kegiatan</a></li>
+            <li><a class="cta" href="admissions.html" data-key="nav_admissions">Penerimaan</a></li>
+          </ul>
+        </nav>
+
+        <div class="lang-toggle" role="tablist" aria-label="Language switch">
+          <button class="lang-btn" id="btn-id" data-lang="id" aria-pressed="true">ID</button>
+          <button class="lang-btn" id="btn-en" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="hero">
+        <div class="hero-inner">
+          <div class="hero-left">
+            <span class="eyebrow" data-key="eyebrow">Penerimaan Peserta Didik Baru</span>
+            <h2 class="headline" data-key="headline">Daftar ke SMA Santa Maria — Mulai Perjalananmu</h2>
+            <p class="sub" data-key="sub">Informasi pendaftaran, persyaratan, alur seleksi, jadwal, dan formulir pendaftaran online. Gunakan tombol “Daftar Sekarang” untuk mulai mengisi formulir setelah membaca brosur.</p>
+            <div class="hero-ctas">
+              <button id="btn-toggle-mode" class="btn btn-primary" data-mode="brosur">Daftar Sekarang</button>
+              <a class="btn btn-outline" id="btn-download-brosur" href="#" download>Unduh Brosur (PDF)</a>
+            </div>
+          </div>
+
+          <div class="hero-right hero-card" aria-hidden="true" id="hero-right">
+            <!-- hero-right content toggles depending on mode, starts minimal -->
+            <div id="hr-brosur" class="">
+              <h4>Ringkasan Brosur</h4>
+              <p class="muted-small">Lihat brosur resmi sekolah di panel utama untuk informasi lengkap. Klik "Daftar Sekarang" untuk mengisi formulir pendaftaran.</p>
+            </div>
+            <div id="hr-form" class="hidden">
+              <h4>Kontak Panitia</h4>
+              <p class="muted-small">Ibu Astuti — <a id="wa-link-hero" class="contact-link" href="https://wa.me/6287738555566" target="_blank" rel="noopener"><span class="wa-badge">WhatsApp</span> 0877-3855-5566</a></p>
+              <p class="muted-small">Tel sekolah: (0274) 375146</p>
+              <p class="muted-small">Email: stamajogja@gmail.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="grid">
+      <section>
+        <div class="card" id="brosur-mode">
+          <h3 class="title">Brosur Pendaftaran</h3>
+          <p class="muted">Baca brosur resmi terlebih dahulu. Setelah siap, klik "Daftar Sekarang" untuk beralih ke formulir.</p>
+
+          <!-- Brochure viewer (PDF embedded). Replace path if needed -->
+          <div class="brosur-frame" id="brosur-viewer">
+            <iframe id="brosur-iframe" src="assets/brosur.pdf" title="Brosur PPDB SMA Santa Maria" style="width:100%;height:100%;border:0"></iframe>
+          </div>
+
+          <div style="margin-top:12px; display:flex; gap:8px; align-items:center;">
+            <button id="btn-enroll-from-brosur" class="btn btn-primary">Daftar Sekarang</button>
+            <a id="link-download-brosur" class="btn btn-outline" href="assets/brosur.pdf" download>Unduh Brosur (PDF)</a>
+          </div>
+        </div>
+
+        <!-- Form card (hidden initially) -->
+        <div class="card hidden" id="form-mode" style="margin-top:18px">
+          <h3 class="title">Formulir Pendaftaran (PPDB)</h3>
+          <p class="muted">Isi formulir berikut. Ketika selesai Anda dapat mengunduh salinan atau menunggu konfirmasi panitia.</p>
+
+          <!-- BEGIN: Your original form (kept intact) -->
+          <!-- Keep the form's id admissionForm so scripts still work -->
+<form id="admissionForm" class="space-y-6 bg-white p-6 rounded-2xl shadow">
+
+  <!-- === Informasi Dasar === -->
+  <section>
+    <h2 class="text-lg font-medium mb-3">Informasi Dasar</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem">
+      <div>
+        <label class="required block mb-1">Jalur</label>
+        <select name="jalur" required class="w-full border rounded px-3 py-2">
+          <option value="">Pilih</option>
+          <option>Promo</option><option>Prestasi</option>
+          <option>Kolektif</option><option>Reguler</option><option>Pindahan</option>
+        </select>
+      </div>
+      <div>
+        <label class="required block mb-1">NISN (atau -)</label>
+        <input name="nisn" required class="w-full border rounded px-3 py-2"/>
+      </div>
+      <div>
+        <label class="required block mb-1">NIK (atau -)</label>
+        <input name="nik" required class="w-full border rounded px-3 py-2"/>
+      </div>
+      <div>
+        <label class="required block mb-1">Jenis Kelamin</label>
+        <select name="jenis_kelamin" required class="w-full border rounded px-3 py-2">
+          <option value="">Pilih</option>
+          <option>Laki-laki</option><option>Perempuan</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <!-- === Data Siswa === -->
+  <section>
+    <h2 class="text-lg font-medium mb-3">Data Siswa</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem">
+      <div><label class="required block mb-1">Nama Lengkap</label>
+        <input name="nama_lengkap" required class="w-full border rounded px-3 py-2"/>
+      </div>
+      <div><label class="block mb-1">Nama Panggilan</label>
+        <input name="nama_panggilan" class="w-full border rounded px-3 py-2"/>
+      </div>
+      <div><label class="block mb-1">Tempat Lahir</label>
+        <input name="tempat_lahir" class="w-full border rounded px-3 py-2"/>
+      </div>
+      <div><label class="required block mb-1">Tanggal Lahir</label>
+        <input type="date" name="tanggal_lahir" required class="w-full border rounded px-3 py-2"/>
+      </div>
+      <div><label class="required block mb-1">Agama</label>
+        <select name="agama" required class="w-full border rounded px-3 py-2">
+          <option value="">Pilih</option><option>Katolik</option><option>Kristen</option>
+          <option>Islam</option><option>Hindu</option><option>Budha</option><option>Lainnya</option>
+        </select>
+      </div>
+      <div><label class="required block mb-1">Kewarganegaraan</label>
+        <select name="kewarganegaraan" required class="w-full border rounded px-3 py-2">
+          <option value="">Pilih</option><option>WNI</option><option>WNA</option>
+        </select>
+      </div>
+      <div><label class="block mb-1">Anak Ke-</label>
+        <input name="anak_ke" class="w-full border rounded px-3 py-2"/>
+      </div>
+      <div><label class="block mb-1">Jumlah Saudara</label>
+        <input type="number" name="jumlah_saudara" class="w-full border rounded px-3 py-2"/>
+      </div>
+      <div><label class="block mb-1">Status Anak</label>
+        <select name="status_anak" class="w-full border rounded px-3 py-2">
+          <option value="">Pilih</option><option>Kandung</option><option>Angkat</option><option>Tiri</option><option>Lainnya</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <!-- === Alamat & Kontak === -->
+  <section>
+    <h2 class="text-lg font-medium mb-3">Alamat & Kontak</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem">
+      <div><label class="block mb-1">Alamat Asal</label><input name="alamat_asal" class="w-full border rounded px-3 py-2"/></div>
+      <div><label class="block mb-1">Telepon Rumah</label><input name="telp_rumah_asal" class="w-full border rounded px-3 py-2"/></div>
+      <div><label class="block mb-1">Alamat di Yogyakarta</label><input name="alamat_yogyakarta" class="w-full border rounded px-3 py-2"/></div>
+      <div><label class="block mb-1">Telepon Rumah (Yogyakarta)</label><input name="telp_rumah_yk" class="w-full border rounded px-3 py-2"/></div>
+      <div><label class="required block mb-1">No HP</label><input name="no_hp" required class="w-full border rounded px-3 py-2"/></div>
+      <div><label class="block mb-1">Email</label><input type="email" name="email" class="w-full border rounded px-3 py-2"/></div>
+      <div><label class="block mb-1">Jarak ke Sekolah</label><input name="jarak_sekolah" class="w-full border rounded px-3 py-2"/></div>
+      <div><label class="block mb-1">Golongan Darah</label>
+        <select name="gol_darah" class="w-full border rounded px-3 py-2">
+          <option value="">Pilih</option><option>A</option><option>B</option><option>AB</option><option>O</option><option>Tidak tahu</option>
+        </select>
+      </div>
+      <div><label class="block mb-1">Berat Badan</label><input type="number" name="berat_badan" class="w-full border rounded px-3 py-2"/></div>
+      <div><label class="block mb-1">Tinggi Badan</label><input type="number" name="tinggi_badan" class="w-full border rounded px-3 py-2"/></div>
+      <div><label class="block mb-1">Riwayat Penyakit</label><input name="riwayat_penyakit" class="w-full border rounded px-3 py-2"/></div>
+    </div>
+  </section>
+
+  <!-- === Asal Sekolah === -->
+  <section>
+    <h2 class="text-lg font-medium mb-3">Asal Sekolah</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem">
+      <div><label class="block mb-1">Asal Sekolah</label><input name="asal_sekolah" class="w-full border rounded px-3 py-2"/></div>
+      <div><label class="block mb-1">Alamat Asal Sekolah</label><input name="alamat_asal_sekolah" class="w-full border rounded px-3 py-2"/></div>
+    </div>
+  </section>
+
+  <!-- === Orang Tua === -->
+  <section>
+    <h2 class="text-lg font-medium mb-3">Data Orang Tua</h2>
+    <div style="display:flex;flex-direction:column;gap:1rem">
+      <!-- Ayah -->
+      <div style="background:#f8fafc;padding:1rem;border-radius:8px">
+        <h3 class="font-semibold mb-3">Ayah</h3>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem">
+          <div><label class="block mb-1">Nama Ayah</label><input name="nama_ayah" class="w-full border rounded px-3 py-2"/></div>
+          <div><label class="block mb-1">Status Ayah</label>
+            <select name="status_ayah" class="w-full border rounded px-3 py-2"><option value="">Pilih</option><option>Kandung</option><option>Angkat</option><option>Tiri</option><option>Lainnya</option></select>
+          </div>
+          <div><label class="block mb-1">Pendidikan Terakhir Ayah</label>
+            <select name="pendidikan_ayah" class="w-full border rounded px-3 py-2"><option value="">Pilih</option><option>SD</option><option>SMP</option><option>SMA/SMK</option><option>D1/D2</option><option>D3</option><option>S1</option><option>S2</option><option>S3</option></select>
+          </div>
+          <div><label class="block mb-1">Pekerjaan Ayah</label>
+            <select id="pekerjaan_ayah" name="pekerjaan_ayah" class="w-full border rounded px-3 py-2">
+              <option value="">Pilih</option><option>Tidak Bekerja</option><option>Petani</option><option>Nelayan</option><option>Pedagang</option><option>PNS</option><option>Anggota TNI</option><option>Kepolisian</option><option>Pensiunan</option><option>Pegawai Swasta</option><option>Mahasiswa</option><option>Dokter</option><option>Guru/Dosen</option><option>Tenaga Medis</option><option>Pejabat Negara</option><option>Lainnya</option>
+            </select>
+          </div>
+          <div id="wrapper_pekerjaan_ayah_lain" class="hidden" style="grid-column:1 / -1">
+            <label class="block mb-1">Jika 'Lainnya', sebutkan (Ayah)</label>
+            <input id="pekerjaan_ayah_lain" name="pekerjaan_ayah_lain" class="w-full border rounded px-3 py-2"/>
+          </div>
+          <div><label class="block mb-1">Penghasilan Ayah</label><input name="penghasilan_ayah" class="w-full border rounded px-3 py-2"/></div>
+          <div><label class="block mb-1">Nomor HP Ayah</label><input name="hp_ayah" class="w-full border rounded px-3 py-2"/></div>
+          <div style="grid-column:1 / -1"><label class="block mb-1">Alamat Ayah</label><textarea id="alamat_ayah" name="alamat_ayah" class="w-full border rounded px-3 py-2"></textarea></div>
+        </div>
+      </div>
+
+      <!-- Ibu -->
+      <div style="background:#f8fafc;padding:1rem;border-radius:8px">
+        <h3 class="font-semibold mb-3">Ibu</h3>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem">
+          <div><label class="block mb-1">Nama Ibu</label><input name="nama_ibu" class="w-full border rounded px-3 py-2"/></div>
+          <div><label class="block mb-1">Status Ibu</label>
+            <select name="status_ibu" class="w-full border rounded px-3 py-2"><option value="">Pilih</option><option>Kandung</option><option>Angkat</option><option>Tiri</option><option>Lainnya</option></select>
+          </div>
+          <div><label class="block mb-1">Pendidikan Terakhir Ibu</label>
+            <select name="pendidikan_ibu" class="w-full border rounded px-3 py-2"><option value="">Pilih</option><option>SD</option><option>SMP</option><option>SMA/SMK</option><option>D1/D2</option><option>D3</option><option>S1</option><option>S2</option><option>S3</option></select>
+          </div>
+          <div><label class="block mb-1">Pekerjaan Ibu</label>
+            <select id="pekerjaan_ibu" name="pekerjaan_ibu" class="w-full border rounded px-3 py-2">
+              <option value="">Pilih</option><option>Tidak Bekerja</option><option>Petani</option><option>Nelayan</option><option>Pedagang</option><option>PNS</option><option>Anggota TNI</option><option>Kepolisian</option><option>Pensiunan</option><option>Pegawai Swasta</option><option>Mahasiswa</option><option>Dokter</option><option>Guru/Dosen</option><option>Tenaga Medis</option><option>Pejabat Negara</option><option>Lainnya</option>
+            </select>
+          </div>
+          <div id="wrapper_pekerjaan_ibu_lain" class="hidden" style="grid-column:1 / -1">
+            <label class="block mb-1">Jika 'Lainnya', sebutkan (Ibu)</label>
+            <input id="pekerjaan_ibu_lain" name="pekerjaan_ibu_lain" class="w-full border rounded px-3 py-2"/>
+          </div>
+          <div><label class="block mb-1">Penghasilan Ibu</label><input name="penghasilan_ibu" class="w-full border rounded px-3 py-2"/></div>
+          <div><label class="block mb-1">Nomor HP Ibu</label><input name="hp_ibu" class="w-full border rounded px-3 py-2"/></div>
+          <div style="grid-column:1 / -1"><label class="block mb-1">Alamat Ibu</label><textarea id="alamat_ibu" name="alamat_ibu" class="w-full border rounded px-3 py-2"></textarea></div>
+          <div style="grid-column:1 / -1; display:flex;align-items:center;gap:8px">
+            <input type="checkbox" id="alamat_sama_ayah"/><label for="alamat_sama_ayah" class="field-note">Alamat Ibu sama dengan Ayah</label>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- === Wali === -->
+  <section>
+    <h2 class="text-lg font-medium mb-3">Wali (Jika Ada)</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem">
+      <div><label class="block mb-1">Nama Wali</label><input name="nama_wali" class="w-full border rounded px-3 py-2"/></div>
+      <div><label class="block mb-1">Alamat Wali</label><input name="alamat_wali" class="w-full border rounded px-3 py-2"/></div>
+      <div><label class="block mb-1">Hubungan dengan Anak</label><input name="hubungan_wali" class="w-full border rounded px-3 py-2"/></div>
+      <div><label class="block mb-1">Nomor HP Wali</label><input name="hp_wali" class="w-full border rounded px-3 py-2"/></div>
+    </div>
+  </section>
+
+  <!-- SECTION: Nilai (dalam tabel) -->
+  <section>
+    <h2 class="text-lg font-medium mb-3">Nilai Akademik (Masukkan angka untuk setiap semester)</h2>
+    <p class="muted-small mb-3">Masukkan nilai untuk semua semester: Kelas 7 (Sem 1 & 2), Kelas 8 (Sem 1 & 2), Kelas 9 (Sem 1).</p>
+
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse">
+        <thead style="background:#f1f9ff">
+          <tr>
+            <th style="border:1px solid #e6eef7;padding:8px;text-align:left">Mata Pelajaran</th>
+            <th style="border:1px solid #e6eef7;padding:8px;text-align:center">7 - Sem 1</th>
+            <th style="border:1px solid #e6eef7;padding:8px;text-align:center">7 - Sem 2</th>
+            <th style="border:1px solid #e6eef7;padding:8px;text-align:center">8 - Sem 1</th>
+            <th style="border:1px solid #e6eef7;padding:8px;text-align:center">8 - Sem 2</th>
+            <th style="border:1px solid #e6eef7;padding:8px;text-align:center">9 - Sem 1</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- rows omitted for brevity (same as before) -->
+          <tr>
+            <td style="border:1px solid #eee;padding:8px">Matematika</td>
+            <td style="border:1px solid #eee;padding:8px"><input name="nilai_mtk_7_1" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
+            <td style="border:1px solid #eee;padding:8px"><input name="nilai_mtk_7_2" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
+            <td style="border:1px solid #eee;padding:8px"><input name="nilai_mtk_8_1" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
+            <td style="border:1px solid #eee;padding:8px"><input name="nilai_mtk_8_2" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
+            <td style="border:1px solid #eee;padding:8px"><input name="nilai_mtk_9_1" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
+          </tr>
+
+          <tr>
+            <td style="border:1px solid #eee;padding:8px">Bahasa Inggris</td>
+            <td style="border:1px solid #eee;padding:8px"><input name="nilai_ing_7_1" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
+            <td style="border:1px solid #eee;padding:8px"><input name="nilai_ing_7_2" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
+            <td style="border:1px solid #eee;padding:8px"><input name="nilai_ing_8_1" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
+            <td style="border:1px solid #eee;padding:8px"><input name="nilai_ing_8_2" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
+            <td style="border:1px solid #eee;padding:8px"><input name="nilai_ing_9_1" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
+          </tr>
+
+          <tr>
+            <td style="border:1px solid #eee;padding:8px">Bahasa Indonesia</td>
+            <td style="border:1px solid #eee;padding:8px"><input name="nilai_indo_7_1" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
+            <td style="border:1px solid #eee;padding:8px"><input name="nilai_indo_7_2" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
+            <td style="border:1px solid #eee;padding:8px"><input name="nilai_indo_8_1" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
+            <td style="border:1px solid #eee;padding:8px"><input name="nilai_indo_8_2" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
+            <td style="border:1px solid #eee;padding:8px"><input name="nilai_indo_9_1" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
+          </tr>
+
+          <tr>
+            <td style="border:1px solid #eee;padding:8px">IPA</td>
+            <td style="border:1px solid #eee;padding:8px"><input name="nilai_ipa_7_1" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
+            <td style="border:1px solid #eee;padding:8px"><input name="nilai_ipa_7_2" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
+            <td style="border:1px solid #eee;padding:8px"><input name="nilai_ipa_8_1" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
+            <td style="border:1px solid #eee;padding:8px"><input name="nilai_ipa_8_2" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
+            <td style="border:1px solid #eee;padding:8px"><input name="nilai_ipa_9_1" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
+          </tr>
+
+          <tr>
+            <td style="border:1px solid #eee;padding:8px">IPS</td>
+            <td style="border:1px solid #eee;padding:8px"><input name="nilai_ips_7_1" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
+            <td style="border:1px solid #eee;padding:8px"><input name="nilai_ips_7_2" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
+            <td style="border:1px solid #eee;padding:8px"><input name="nilai_ips_8_1" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
+            <td style="border:1px solid #eee;padding:8px"><input name="nilai_ips_8_2" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
+            <td style="border:1px solid #eee;padding:8px"><input name="nilai_ips_9_1" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- === Prestasi === -->
+  <section>
+    <h2 class="text-lg font-medium mb-3">Prestasi Non Akademik</h2>
+    <textarea name="prestasi_non_akademik" rows="3" class="w-full border rounded px-3 py-2"></textarea>
+  </section>
+
+  <!-- Submit -->
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+    <button type="submit" style="background:linear-gradient(90deg,#2563eb,#3b82f6);color:#fff;padding:8px 12px;border-radius:8px;border:none">Kirim</button>
+    <button type="reset" style="background:#f1f5f9;padding:8px 12px;border-radius:8px;border:1px solid #e2e8f0">Kosongkan</button>
+  </div>
+  <div id="formMessage" class="mt-3 text-sm"></div>
+</form>
+          <!-- END: Form -->
+          <div style="margin-top:12px">
+            <button id="btn-view-brosur-from-form" class="btn btn-outline">Lihat Brosur</button>
+            <a id="btn-download-brosur-2" class="btn btn-outline" href="assets/brosur.pdf" download style="margin-left:8px">Unduh Brosur (PDF)</a>
+          </div>
+        </div>
+
+      </section>
+
+      <aside>
+        <div class="card contact-card">
+          <div>
+            <div class="meta">Kontak Panitia Pendaftaran</div>
+            <div class="muted-small"><strong>Ibu Astuti</strong></div>
+            <div class="muted-small">
+              <a id="wa-link" class="contact-link" href="https://wa.me/6287738555566" target="_blank" rel="noopener">
+                <span class="wa-badge">WhatsApp</span> 0877-3855-5566
+              </a>
+            </div>
+            <div class="muted-small" style="margin-top:8px">Tel sekolah: <strong>(0274) 375146</strong></div>
+            <div class="muted-small">Email: <a href="mailto:stamajogja@gmail.com">stamajogja@gmail.com</a></div>
+
+            <div style="margin-top:12px">
+              <a class="btn btn-primary" href="tel:+62774375146">Hubungi Sekolah</a>
+            </div>
+          </div>
+
+          <div style="margin-top:14px">
+            <h4 style="margin:0 0 8px">Brosur & Formulir</h4>
+            <a class="btn btn-outline" id="download-pdf" href="assets/brosur.pdf" download>Unduh Formulir (PDF)</a>
+          </div>
+
+          <!-- removed 'Perlu Bantuan' block per request -->
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container" style="padding:18px 0">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap">
+        <div class="muted-small">© <span id="year"></span> SMA Santa Maria Yogyakarta — Semua hak dilindungi.</div>
+        <div class="muted-small">Made with ❤ — STAMA IT</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // config: change if brochure file path different
+    const BROCHURE_PDF = "assets/brosur.pdf"; // <- put your brochure file here
+
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // initial UI mode: 'brosur' (shows brochure) or 'form' (shows form)
+    let mode = 'brosur';
+
+    // elements
+    const brosurModeCard = document.getElementById('brosur-mode');
+    const formModeCard = document.getElementById('form-mode');
+    const btnToggleMode = document.getElementById('btn-toggle-mode');
+    const btnEnrollFromBrosur = document.getElementById('btn-enroll-from-brosur');
+    const btnViewBrosurFromForm = document.getElementById('btn-view-brosur-from-form');
+    const brosurIframe = document.getElementById('brosur-iframe');
+    const btnDownloadBrosur = document.getElementById('btn-download-brosur');
+    const linkDownload = document.getElementById('link-download-brosur');
+    const btnDownloadBrosur2 = document.getElementById('btn-download-brosur-2');
+
+    // set brochure src
+    if(brosurIframe) brosurIframe.src = BROCHURE_PDF;
+    if(btnDownloadBrosur) btnDownloadBrosur.href = BROCHURE_PDF;
+    if(linkDownload) linkDownload.href = BROCHURE_PDF;
+    if(btnDownloadBrosur2) btnDownloadBrosur2.href = BROCHURE_PDF;
+
+    function showMode(m){
+      mode = m;
+      if(mode === 'brosur'){
+        brosurModeCard.classList.remove('hidden');
+        formModeCard.classList.add('hidden');
+        // hero right: show brosur summary
+        document.getElementById('hr-brosur').classList.remove('hidden');
+        document.getElementById('hr-form').classList.add('hidden');
+        btnToggleMode.dataset.mode = 'brosur';
+        btnToggleMode.textContent = 'Daftar Sekarang';
+      } else {
+        brosurModeCard.classList.add('hidden');
+        formModeCard.classList.remove('hidden');
+        document.getElementById('hr-brosur').classList.add('hidden');
+        document.getElementById('hr-form').classList.remove('hidden');
+        btnToggleMode.dataset.mode = 'form';
+        btnToggleMode.textContent = 'Kembali ke Brosur';
+      }
+      // scroll to top of card
+      window.scrollTo({top: document.querySelector('main').offsetTop - 10, behavior: 'smooth'});
+    }
+
+    // initial
+    showMode('brosur');
+
+    // event wiring
+    if(btnToggleMode){
+      btnToggleMode.addEventListener('click', ()=>{
+        showMode(mode === 'brosur' ? 'form' : 'brosur');
+      });
+    }
+    if(btnEnrollFromBrosur){
+      btnEnrollFromBrosur.addEventListener('click', ()=> showMode('form'));
+    }
+    if(btnViewBrosurFromForm){
+      btnViewBrosurFromForm.addEventListener('click', ()=> showMode('brosur'));
+    }
+
+    // language toggles (small set)
+    const translations = {
+      id: {
+        eyebrow: 'Penerimaan Peserta Didik Baru',
+        headline: 'Daftar ke SMA Santa Maria — Mulai Perjalananmu',
+        sub: 'Baca brosur resmi terlebih dahulu. Setelah siap, klik "Daftar Sekarang" untuk mengisi formulir pendaftaran.',
+        cta_register: 'Daftar Sekarang',
+        cta_brochure: 'Unduh Brosur (PDF)'
+      },
+      en: {
+        eyebrow: 'Admissions',
+        headline: 'Apply to Santa Maria — Start Your Journey',
+        sub: 'Read the official brochure first. When ready, click "Register" to fill the registration form.',
+        cta_register: 'Register Now',
+        cta_brochure: 'Download Brochure (PDF)'
+      }
+    };
+    function getCurrentLang(){ try{ return localStorage.getItem('site_lang') || 'id'; }catch(e){ return 'id'; } }
+    function applyLanguage(lang){
+      const dict = translations[lang] || translations.id;
+      document.documentElement.lang = lang;
+      Object.keys(dict).forEach(k=>{
+        document.querySelectorAll('[data-key="'+k+'"]').forEach(el=> el.textContent = dict[k]);
+      });
+      document.querySelectorAll('.lang-btn').forEach(btn=>{
+        const bLang = btn.getAttribute('data-lang');
+        if(bLang === lang){ btn.classList.add('active'); btn.setAttribute('aria-pressed','true'); }
+        else { btn.classList.remove('active'); btn.setAttribute('aria-pressed','false'); }
+      });
+      try{ localStorage.setItem('site_lang', lang); }catch(e){}
+    }
+    (function initLang(){
+      const saved = getCurrentLang();
+      applyLanguage(saved);
+      document.querySelectorAll('.lang-btn').forEach(btn=>{
+        btn.addEventListener('click', function(){ applyLanguage(this.getAttribute('data-lang')); });
+      });
+    })();
+
+    // --- YOUR FORM SCRIPT (kept, slightly improved) ---
+    (function(){
+      const ENDPOINT = "https://script.google.com/macros/s/AKfycbybZVXV__8D69qRmA0zyHAI_SKIQYGinYyvQGXI5RyEiRMd4y_ghBPXHq35kLbht6X_/exec";
+      const form = document.getElementById('admissionForm');
+      const msg = document.getElementById('formMessage');
+
+      // toggle pekerjaan lainnya
+      function setupLainnya(selectId, wrapperId, inputId){
+        const sel=document.getElementById(selectId),
+              wrap=document.getElementById(wrapperId),
+              inp=document.getElementById(inputId);
+        if(!sel || !wrap || !inp) return;
+        function update(){
+          if(sel.value==="Lainnya"){ wrap.classList.remove("hidden"); inp.disabled=false; }
+          else { wrap.classList.add("hidden"); inp.value=""; inp.disabled=true; }
+        }
+        sel.addEventListener("change",update); update();
+      }
+      setupLainnya("pekerjaan_ayah","wrapper_pekerjaan_ayah_lain","pekerjaan_ayah_lain");
+      setupLainnya("pekerjaan_ibu","wrapper_pekerjaan_ibu_lain","pekerjaan_ibu_lain");
+
+      // alamat sama sync
+      const alamatSama = document.getElementById("alamat_sama_ayah");
+      const alamatAyah = document.getElementById("alamat_ayah");
+      const alamatIbu = document.getElementById("alamat_ibu");
+      if(alamatSama && alamatAyah && alamatIbu){
+        alamatSama.addEventListener("change", e=>{
+          if(e.target.checked){
+            alamatIbu.value = alamatAyah.value;
+            alamatIbu.readOnly = true;
+          } else {
+            alamatIbu.readOnly = false;
+          }
+        });
+        alamatAyah.addEventListener('input', ()=>{
+          if(alamatSama.checked){
+            alamatIbu.value = alamatAyah.value;
+          }
+        });
+      }
+
+      form.addEventListener("submit", async e=>{
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(form).entries());
+
+        if(!ENDPOINT){
+          msg.innerHTML = "<span style='color:#b45309'>[Dev] ENDPOINT belum diisi. Data tidak terkirim.</span>";
+          return;
+        }
+
+        try {
+          msg.textContent = "Mengirim...";
+          await fetch(ENDPOINT, {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: { "Content-Type": "application/json" },
+            mode: "no-cors"
+          });
+          msg.innerHTML = "<span style='color:#16a34a'>Data berhasil dikirim!</span>";
+          form.reset();
+        } catch(err) {
+          msg.innerHTML = "<span style='color:#dc2626'>Gagal: "+err.message+"</span>";
+        }
+      });
+
+      // download placeholders already points to PDF; hero btn download is configured above
+      document.getElementById('download-pdf').addEventListener('click', e=>{
+        // do nothing, link is direct download
+      });
+
+    })();
+
+    // Make WhatsApp links use cleaned mobile number (ensure correct)
+    (function fixWaLinks(){
+      // number you provided: 087738555566 -> wa link uses 62 + (no leading zero)
+      const waNumber = "6287738555566";
+      document.querySelectorAll('[href^="https://wa.me/"]').forEach(a=>{
+        // keep existing href if same; otherwise set
+        a.href = "https://wa.me/" + waNumber;
+      });
+      const waHero = document.getElementById('wa-link-hero');
+      if(waHero) waHero.href = "https://wa.me/" + waNumber;
+    })();
+  </script>
+</body>
+</html>
