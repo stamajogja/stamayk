@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SMA Santa Maria Yogyakarta (STAMA) — Beranda</title>
+  <meta name="description" content="SMA Santa Maria Yogyakarta — Menghasilkan pemimpin cerdas, beriman, dan peduli." />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --blue:#0b4f7a; /* deep blue */
+      --gold:#d4b05a; /* warm gold */
+      --green:#4b9a6a; /* accent green */
+      --ivory:#fbf7f0;
+      --muted:#6b7785;
+      --max-width:1100px;
+    }
+    *{box-sizing:border-box}
+    body{font-family: 'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; color:#123; background:var(--ivory);}
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--max-width); margin:0 auto; padding:0 20px}
+    header{
+      /* gradient overlay first, then background image */
+      background:
+        linear-gradient(180deg, rgba(11,79,122,0.86) 0%, rgba(11,79,122,0.72) 45%, rgba(11,79,122,0.60) 100%),
+        url('imgslanding/headerbackg.webp');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      /* blend for a smooth overlay effect */
+      background-blend-mode: overlay;
+      color:var(--ivory);
+    }
+    .topbar{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:12px}
+    .logo{width:56px; height:56px; border-radius:8px; background:var(--ivory); display:flex; align-items:center; justify-content:center; box-shadow:0 4px 14px rgba(2,18,32,0.25)}
+    .logo1{width:56px; height:56px; display:flex; align-items:center; justify-content:center}
+    .logo img{width:36px; height:36px}
+    .brand h1{font-family:'Merriweather', serif; font-size:18px; margin:0}
+    nav ul{display:flex; gap:14px; list-style:none; margin:0; padding:0}
+    nav a{padding:8px 14px; border-radius:8px; font-weight:600}
+    nav a.cta{background:var(--gold); color:var(--blue)}
+
+    /* language toggle */
+    .lang-toggle{display:flex; gap:8px; align-items:center}
+    .lang-btn{background:transparent;border:2px solid rgba(255,255,255,0.12);color:var(--ivory);padding:6px 10px;border-radius:8px;cursor:pointer;font-weight:700}
+    .lang-btn.active{background:var(--ivory); color:var(--blue); border-color:transparent}
+
+    /* HERO */
+    .hero{display:grid; grid-template-columns:1fr; align-items:center; gap:28px; padding:48px 0}
+    .hero-inner{display:flex; gap:36px; align-items:center}
+    .hero-left{color:var(--ivory)}
+    .eyebrow{display:inline-block; background:rgba(255,255,255,0.06); padding:6px 10px; border-radius:999px; font-size:13px; margin-bottom:12px}
+    .headline{font-family:'Merriweather', serif; font-size:44px; line-height:1.02; color:var(--gold); margin:0 0 18px}
+    .sub{color:rgba(255,255,255,0.9); max-width:540px; margin-bottom:18px}
+    .hero-ctas{display:flex; gap:12px}
+    .btn{padding:12px 18px; border-radius:10px; font-weight:700}
+    .btn-primary{background:var(--gold); color:var(--blue)}
+    .btn-outline{background:transparent; border:2px solid rgba(255,255,255,0.14); color:var(--ivory)}
+
+    .hero-right{min-height:240px; border-radius:14px; overflow:hidden; box-shadow:0 12px 30px rgba(2,18,32,0.4)}
+    .hero-image{width:100%; height:100%; display:block; object-fit:cover}
+
+    /* CONTENT */
+    main{padding:36px 0}
+    .section{padding:36px 0}
+    .section .title{font-family:'Merriweather', serif; font-size:32px; color:var(--blue); margin:0 0 18px}
+    .lead{color:var(--muted); font-size:16px; line-height:1.6}
+
+    /* Mission grid */
+    .mission-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:18px}
+    .mission-card{background:white; padding:18px; border-radius:12px; box-shadow:0 6px 18px rgba(6,24,48,0.06); display:flex; gap:12px; align-items:center}
+    .mission-icon{width:56px;height:56px;display:flex;align-items:center;justify-content:center;border-radius:10px;background:linear-gradient(180deg,rgba(212,176,90,0.12),rgba(75,154,106,0.06))}
+    .mission-card h4{margin:0; font-size:16px; color:var(--blue)}
+    .mission-card p{margin:4px 0 0; color:var(--muted); font-size:14px}
+
+    /* Why choose */
+    .why-list{margin-top:14px}
+    .why-list ul{padding-left:18px}
+
+    /* Gallery */
+    .gallery{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+    .photo{height:140px; border-radius:10px; overflow:hidden; background:#e7eef5; display:flex;align-items:center;justify-content:center; color:var(--muted); font-weight:700}
+
+    /* Testimonials */
+    .testimonials{display:flex; gap:12px; margin-top:12px; flex-wrap:wrap}
+    .testimonial{background:white;padding:16px;border-radius:10px; box-shadow:0 6px 18px rgba(6,24,48,0.06); min-width:220px}
+
+    /* FOOTER */
+    footer{padding:28px 0; border-top:1px solid rgba(18,22,36,0.04); margin-top:28px}
+    .footer-grid{display:flex; gap:28px; flex-wrap:wrap}
+
+    /* Responsive */
+    @media (min-width:900px){
+      .hero{padding:64px 0}
+      .hero-inner{grid-template-columns:1fr 520px; display:grid; grid-template-columns:1fr 520px}
+      .headline{font-size:56px}
+      .mission-grid{grid-template-columns:repeat(3,1fr)}
+      .gallery{grid-template-columns:repeat(3,1fr)}
+    }
+    @media (max-width:899px){
+      .hero-inner{flex-direction:column-reverse}
+      .mission-grid{grid-template-columns:repeat(2,1fr)}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      nav ul{display:none}
+    }
+    @media (max-width:520px){
+      .mission-grid{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr}
+      .headline{font-size:32px}
+    }
+
+    /* small helpers */
+    .muted{color:var(--muted)}
+    .pill{display:inline-block;padding:6px 12px;background:rgba(75,154,106,0.08);border-radius:999px;color:var(--green);font-weight:700}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container topbar">
+      <div class="brand">
+        <div class="logo1" aria-hidden="true">
+          <!-- school logo -->
+          <img src="icons/logostamayk.svg" alt="STAMA Logo" width="48" height="48">
+        </div>
+        <div>
+          <h1 data-key="brand_name">SMA Santa Maria (STAMA)</h1>
+          <div class="muted" data-key="brand_tag">Yogyakarta — Pendidikan, Iman, Komunitas</div>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:18px">
+        <nav aria-label="Primary navigation">
+          <ul>
+            <li><a href="#about" data-key="nav_about">Tentang</a></li>
+            <li><a href="#vision" data-key="nav_vision">Visi & Misi</a></li>
+            <li><a href="#activities" data-key="nav_activities">Kegiatan</a></li>
+            <li><a class="cta" href="admission.html" data-key="nav_admissions">Penerimaan</a></li>
+          </ul>
+        </nav>
+
+        <div class="lang-toggle" role="tablist" aria-label="Language switch">
+          <button class="lang-btn" id="btn-id" data-lang="id" aria-pressed="true">ID</button>
+          <button class="lang-btn" id="btn-en" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="hero">
+        <div class="hero-inner">
+          <div class="hero-left">
+            <span class="eyebrow" data-key="eyebrow">SMA Santa Maria • Yogyakarta</span>
+            <h2 class="headline" data-key="headline">Menghasilkan pemimpin yang cerdas, beriman, dan peduli</h2>
+            <p class="sub" data-key="sub">SMA Santa Maria Yogyakarta membentuk individu cerdas yang beriman kepada Tuhan dan mencintai sesama serta ciptaan-Nya. Kami menggabungkan program akademik unggul dengan pembentukan karakter, pelayanan masyarakat, dan kepedulian lingkungan.</p>
+            <div class="hero-ctas">
+              <a class="btn btn-primary" href="admission.html" data-key="cta_join">Bergabung di STAMA</a>
+              <a class="btn btn-outline" href="#vision" data-key="cta_learn">Pelajari Lebih Lanjut</a>
+            </div>
+          </div>
+
+          <div class="hero-right" aria-hidden="true">
+            <!-- placeholder image: user can replace src with real school photo -->
+            <img class="hero-image" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='780'><rect width='100%' height='100%' fill='%230b4f7a'/><text x='50%' y='50%' fill='%23fbf7f0' font-family='Nunito, sans-serif' font-size='48' text-anchor='middle'>Foto sekolah / ganti dengan gambar asli</text></svg>" alt="" id="hero-img-alt">
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="vision" class="section">
+      <h3 class="title" data-key="vision_title">Visi Kami</h3>
+      <p class="lead" data-key="vision_lead">SMA Santa Maria Yogyakarta membentuk individu cerdas yang beriman kepada Tuhan dan mencintai sesama serta ciptaan-Nya.</p>
+    </section>
+
+    <section id="mission" class="section">
+      <h3 class="title" data-key="mission_title">Misi Kami</h3>
+      <p class="muted" data-key="mission_desc">Kami mewujudkan visi melalui misi inti ini — membentuk lulusan beriman, peduli sosial, terampil, dan peka lingkungan untuk siap menghadapi era global.</p>
+      <div class="mission-grid" role="list">
+
+        <article class="mission-card" role="listitem">
+          <div class="mission-icon" aria-hidden="true">
+            <img src="icons/chrstnvlue.svg" alt="" width="50" height="50" />
+          </div>
+          <div>
+            <h4 data-key="m1_title">Nilai Kristiani</h4>
+            <p data-key="m1_text">Menghayati dan menerapkan ajaran Kristiani dalam kehidupan sehari-hari.</p>
+          </div>
+        </article>
+
+        <article class="mission-card">
+          <div class="mission-icon">
+            <img src="icons/hatgrad.svg" alt="" width="50" height="50" />
+          </div>
+          <div>
+            <h4 data-key="m2_title">Pendidikan Berkualitas</h4>
+            <p data-key="m2_text">Pembelajaran efektif, kreatif, inovatif, dan menyenangkan untuk perkembangan holistik.</p>
+          </div>
+        </article>
+
+        <article class="mission-card">
+          <div class="mission-icon">
+            <img src="icons/socs.svg" alt="" width="50" height="50" />
+          </div>
+          <div>
+            <h4 data-key="m3_title">Kepekaan Sosial</h4>
+            <p data-key="m3_text">Menumbuhkan jiwa pelayanan, empati, dan rasa kebersamaan.</p>
+          </div>
+        </article>
+
+        <article class="mission-card">
+          <div class="mission-icon">
+            <img src="icons/leaveenv.svg" alt="" width="50" height="50" />
+          </div>
+          <div>
+            <h4 data-key="m4_title">Lingkungan</h4>
+            <p data-key="m4_text">Mengembangkan kepedulian lingkungan dan praktik berkelanjutan.</p>
+          </div>
+        </article>
+
+        <article class="mission-card">
+          <div class="mission-icon">
+            <img src="icons/startalnt.svg" alt="" width="50" height="50" />
+          </div>
+          <div>
+            <h4 data-key="m5_title">Bakat & Keterampilan</h4>
+            <p data-key="m5_text">Menggali dan mengembangkan bakat siswa untuk kompetisi dan karier.</p>
+          </div>
+        </article>
+
+        <article class="mission-card">
+          <div class="mission-icon">
+            <img src="icons/glob.svg" alt="" width="50" height="50" />
+          </div>
+          <div>
+            <h4 data-key="m6_title">Siap Global</h4>
+            <p data-key="m6_text">Lulusan yang menguasai sains & teknologi dan siap melanjutkan pendidikan tinggi.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div style="display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap">
+        <div style="flex:1;min-width:300px">
+          <h3 class="title" data-key="why_title">Mengapa Memilih STAMA?</h3>
+          <p class="lead" data-key="why_lead">Program seimbang yang memadukan keunggulan akademik, pembentukan karakter, dan kehidupan komunitas — berakar pada tradisi Katolik sekaligus menyiapkan siswa untuk dunia global.</p>
+          <div class="why-list">
+            <ul>
+              <li data-key="why_li1">Tradisi panjang pendidikan Katolik dan nilai-nilai.</li>
+              <li data-key="why_li2">Keseimbangan pembelajaran akademis dan pembentukan karakter.</li>
+              <li data-key="why_li3">Fasilitas modern: laboratorium, perpustakaan, dan sumber daya IT.</li>
+              <li data-key="why_li4">Ekstrakurikuler aktif: seni, olahraga, lingkungan, dan pelayanan.</li>
+              <li data-key="why_li5">Jaringan alumni kuat dan prestasi siswa.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="flex:1;min-width:260px">
+          <h3 class="title" data-key="gallery_title">Kehidupan Siswa — Galeri</h3>
+          <div class="gallery" aria-hidden>
+            <div class="photo" data-key="photo1">Kelas</div>
+            <div class="photo" data-key="photo2">Paduan Suara & Seni</div>
+            <div class="photo" data-key="photo3">Lingkungan</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="activities" class="section">
+      <h3 class="title" data-key="events_title">Kegiatan & Berita</h3>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <div style="flex:1;min-width:240px;background:white;padding:16px;border-radius:10px;box-shadow:0 6px 18px rgba(6,24,48,0.06)">
+          <strong data-key="event1_title">Pameran Sains 2025</strong>
+          <p class="muted" data-key="event1_text">Siswa memamerkan solusi berkelanjutan dan meraih penghargaan tingkat regional.</p>
+        </div>
+        <div style="flex:1;min-width:240px;background:white;padding:16px;border-radius:10px;box-shadow:0 6px 18px rgba(6,24,48,0.06)">
+          <strong data-key="event2_title">Hari Pelayanan Masyarakat</strong>
+          <p class="muted" data-key="event2_text">Sehari untuk pengabdian ke desa-desa sekitar dan kegiatan bersih lingkungan.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="section">
+      <h3 class="title" data-key="testi_title">Suara dari Komunitas Kami</h3>
+      <div class="testimonials">
+        <div class="testimonial">
+          <p data-key="testi1_text">"STAMA menumbuhkan kecintaan saya pada pembelajaran dan pada sesama. Para guru menjadi teladan iman dan keunggulan."</p>
+          <div class="muted" style="margin-top:8px;font-weight:700" data-key="testi1_who">— Alumni, 2019</div>
+        </div>
+        <div class="testimonial">
+          <p data-key="testi2_text">"Kami belajar menjadi warga yang bertanggung jawab yang peduli pada ciptaan."</p>
+          <div class="muted" style="margin-top:8px;font-weight:700" data-key="testi2_who">— Orang tua</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="admissions" class="section">
+      <h3 class="title" data-key="admissions_title">Penerimaan</h3>
+      <p class="lead" data-key="admissions_lead">Bergabunglah dengan keluarga STAMA — kami menyambut siswa yang menginginkan kecakapan akademik dan pembentukan karakter beriman.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
+        <a class="btn btn-primary" href="#" data-key="admissions_apply">Daftar Sekarang</a>
+        <a class="btn" style="background:transparent;border:2px solid var(--blue);color:var(--blue)" href="#" data-key="admissions_brochure">Unduh Brosur</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div style="flex:1;min-width:220px">
+          <strong data-key="footer_name">SMA Santa Maria (STAMA)</strong>
+          <p class="muted" style="margin-top:6px" data-key="footer_contact">Jl. Contoh No.1, Yogyakarta • Tel: (0274) 000000 • email@example.sch.id</p>
+        </div>
+        <div style="flex:1;min-width:220px">
+          <strong data-key="footer_links">Tautan Cepat</strong>
+          <ul class="muted" style="padding-left:18px;margin-top:6px">
+            <li data-key="link_vision">Visi & Misi</li>
+            <li data-key="link_admissions">Penerimaan</li>
+            <li data-key="link_activities">Kegiatan</li>
+            <li data-key="link_contact">Kontak</li>
+          </ul>
+        </div>
+        <div style="flex:1;min-width:220px">
+          <strong data-key="footer_follow">Ikuti Kami</strong>
+          <p class="muted" style="margin-top:6px" data-key="footer_social">Ikon sosial / tautan — ganti dengan profil nyata</p>
+        </div>
+      </div>
+      <div style="margin-top:18px;color:var(--muted);font-size:13px">© <span id="year"></span> <span data-key="footer_copyright">SMA Santa Maria Yogyakarta — Semua hak dilindungi.</span></div>
+    </div>
+  </footer>
+
+  <script>
+    // set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',function(e){
+        const href = this.getAttribute('href');
+        if(href.length>1){
+          e.preventDefault();
+          const el = document.querySelector(href);
+          if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    });
+
+    // --- Translations dictionary ---
+    const translations = {
+      id: {
+        htmlLang: 'id',
+        title: 'SMA Santa Maria Yogyakarta (STAMA) — Beranda',
+        metaDescription: 'SMA Santa Maria Yogyakarta — Menghasilkan pemimpin cerdas, beriman, dan peduli.',
+        // header / nav
+        brand_name: 'SMA Santa Maria (STAMA)',
+        brand_tag: 'Yogyakarta — Pendidikan, Iman, Komunitas',
+        nav_about: 'Tentang',
+        nav_vision: 'Visi & Misi',
+        nav_activities: 'Kegiatan',
+        nav_admissions: 'Penerimaan',
+        // hero
+        eyebrow: 'SMA Santa Maria • Yogyakarta',
+        headline: 'Mengembangkan Pemimpin yang Cerdas, Setia, dan Berbelas Kasih',
+        sub: 'SMA Santa Maria Yogyakarta membentuk individu cerdas yang beriman kepada Tuhan dan mencintai sesama serta ciptaan-Nya. Kami menggabungkan program akademik unggul dengan pembentukan karakter, pelayanan masyarakat, dan kepedulian lingkungan.',
+        cta_join: 'Bergabung di STAMA',
+        cta_learn: 'Pelajari Lebih Lanjut',
+        // vision/mission
+        vision_title: 'Visi Kami',
+        vision_lead: 'SMA Santa Maria Yogyakarta mengembangkan pribadi yang cerdas, beriman pada Tuhan, mencintai sesama dan alam ciptaan-Nya.',
+        mission_title: 'Misi Kami',
+        mission_desc: 'Kami mewujudkan visi melalui misi inti ini — membentuk lulusan beriman, peduli sosial, terampil, dan peka lingkungan untuk siap menghadapi era global.',
+        // missions
+        m1_title: 'Nilai Kristiani',
+        m1_text: 'Menumbuhkan penghayatan nilai-nilai kristiani dan mengamalkannya dalam kehidupan sehari - hari.',
+        m2_title: 'Pendidikan Berkualitas',
+        m2_text: 'Mengoptimalkan pendidikan yang efektif, kreatif, inovatif, bermutu, dan menyenangkan sehingga peserta didik dapat berkembang menjadi pribadi yang utuh.',
+        m3_title: 'Kepekaan Sosial',
+        m3_text: 'Menumbuhkan kepekaan sosial terhadap sesama dan mewujudkan terciptanya semangat kekeluargaan dan persaudaraan.',
+        m4_title: 'Lingkungan',
+        m4_text: 'Menumbuhkan kepedulian terhadap lingkungan dan menjaga kelestariannya.',
+        m5_title: 'Bakat & Keterampilan',
+        m5_text: 'Menggali serta mengembangkan bakat dan minat peserta didik pada bidang keterampilan untuk mewujudkan pribadi yang siap bersaing dalam era globalisasi.',
+        m6_title: 'Siap Global',
+        m6_text: 'Mewujudkan lulusan yang mandiri, cerdas, dan menguasai ilmu pengetahuan dan teknologi yang siap untuk melanjutkan ke jenjang pendidikan yang lebih tinggi serta menyumbangkan diri bagi kesejahteraan bersama.',
+        // about / gallery
+        why_title: 'Mengapa Memilih STAMA?',
+        why_lead: 'Program seimbang yang memadukan keunggulan akademik, pembentukan karakter, dan kehidupan komunitas — berakar pada tradisi Katolik sekaligus menyiapkan siswa untuk dunia global.',
+        why_li1: 'Tradisi panjang pendidikan Katolik dan nilai-nilai.',
+        why_li2: 'Keseimbangan pembelajaran akademis dan pembentukan karakter.',
+        why_li3: 'Fasilitas modern: laboratorium, perpustakaan, dan sumber daya IT.',
+        why_li4: 'Ekstrakurikuler aktif: seni, olahraga, lingkungan, dan pelayanan.',
+        why_li5: 'Jaringan alumni kuat dan prestasi siswa.',
+        gallery_title: 'Kehidupan Siswa — Galeri',
+        photo1: 'Kelas',
+        photo2: 'Paduan Suara & Seni',
+        photo3: 'Lingkungan',
+        // events
+        events_title: 'Kegiatan & Berita',
+        event1_title: 'Pameran Sains 2025',
+        event1_text: 'Siswa memamerkan solusi berkelanjutan dan meraih penghargaan tingkat regional.',
+        event2_title: 'Hari Pelayanan Masyarakat',
+        event2_text: 'Sehari untuk pengabdian ke desa-desa sekitar dan kegiatan bersih lingkungan.',
+        // testimonials
+        testi_title: 'Suara dari Komunitas Kami',
+        testi1_text: '"STAMA menumbuhkan kecintaan saya pada pembelajaran dan pada sesama. Para guru menjadi teladan iman dan keunggulan."',
+        testi1_who: '— Alumni, 2019',
+        testi2_text: '"Kami belajar menjadi warga yang bertanggung jawab yang peduli pada ciptaan."',
+        testi2_who: '— Orang tua',
+        // admissions
+        admissions_title: 'Penerimaan',
+        admissions_lead: 'Bergabunglah dengan keluarga STAMA — kami menyambut siswa yang menginginkan kecakapan akademik dan pembentukan karakter beriman.',
+        admissions_apply: 'Daftar Sekarang',
+        admissions_brochure: 'Unduh Brosur',
+        // footer
+        footer_name: 'SMA Santa Maria (STAMA)',
+        footer_contact: 'Jl. Ireda No.19a, Prawirodirjan, Kec. Gondomanan, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55121',
+        footer_links: 'Tautan Cepat',
+        link_vision: 'Visi & Misi',
+        link_admissions: 'Penerimaan',
+        link_activities: 'Kegiatan',
+        link_contact: 'Kontak',
+        footer_follow: 'Ikuti Kami',
+        footer_social: 'Ikon sosial / tautan — ganti dengan profil nyata',
+        footer_copyright: 'SMA Santa Maria Yogyakarta — Semua hak dilindungi.'
+      },
+      en: {
+        htmlLang: 'en',
+        title: 'SMA Santa Maria Yogyakarta (STAMA) — Home',
+        metaDescription: 'Santa Maria High School Yogyakarta — Developing intelligent, faithful, and compassionate leaders.',
+        // header / nav
+        brand_name: 'SMA Santa Maria (STAMA)',
+        brand_tag: 'Yogyakarta — Education, Faith, Community',
+        nav_about: 'About',
+        nav_vision: 'Vision & Mission',
+        nav_activities: 'Activities',
+        nav_admissions: 'Admissions',
+        // hero
+        eyebrow: 'Santa Maria High School • Yogyakarta',
+        headline: 'Developing Intelligent, Faithful, and Compassionate Leaders',
+        sub: 'Santa Maria High School Yogyakarta develops intelligent individuals who believe in God and love others and His creation. We combine strong academic programs with character formation, community service, and environmental stewardship.',
+        cta_join: 'Join STAMA',
+        cta_learn: 'Learn More',
+        // vision/mission
+        vision_title: 'Our Vision',
+        vision_lead: 'Santa Maria High School Yogyakarta develops intelligent individuals who believe in God and love others and His creation.',
+        mission_title: 'Our Mission',
+        mission_desc: 'We carry out our vision through these core missions — forming faith-filled, socially responsible, skilled, and environmentally-aware graduates ready for the global era.',
+        // missions
+        m1_title: 'Christian Values',
+        m1_text: 'Cultivating the appreciation of Christian values ​​and practicing them in daily life.',
+        m2_title: 'Quality Education',
+        m2_text: 'Optimizing effective, creative, innovative, quality, and enjoyable education so that students can develop into whole individuals.',
+        m3_title: 'Social Sensitivity',
+        m3_text: 'Cultivating social sensitivity towards others and realizing the creation of a spirit of family and brotherhood.',
+        m4_title: 'Environment',
+        m4_text: 'Cultivating concern for the environment and maintaining its sustainability.',
+        m5_title: 'Talents & Skills',
+        m5_text: "Exploring and developing students' talents and interests in the field of skills to create individuals who are ready to compete in the era of globalization.",
+        m6_title: 'Global Readiness',
+        m6_text: 'Creating graduates who are independent, intelligent, and master science and technology who are ready to continue to higher levels of education and contribute to the common welfare.',
+        // about / gallery
+        why_title: 'Why Choose STAMA?',
+        why_lead: 'A balanced program mixing academic excellence, character formation, and community life — rooted in Catholic tradition while preparing students for a global future.',
+        why_li1: 'Long-standing tradition of Catholic education and values.',
+        why_li2: 'Balanced academic and character formation.',
+        why_li3: 'Modern facilities: science labs, library, IT resources.',
+        why_li4: 'Active extracurriculars: arts, sports, environment, and service clubs.',
+        why_li5: 'Strong alumni network and student achievements.',
+        gallery_title: 'Student Life — Gallery',
+        photo1: 'Classroom',
+        photo2: 'Choir & Arts',
+        photo3: 'Environment',
+        // events
+        events_title: 'Events & News',
+        event1_title: 'Science Fair 2025',
+        event1_text: 'Students showcased sustainable solutions and won regional awards.',
+        event2_title: 'Community Service Day',
+        event2_text: 'A day of outreach to nearby villages and environmental cleanups.',
+        // testimonials
+        testi_title: 'Voices from Our Community',
+        testi1_text: '"STAMA nurtured my love for learning and for people. The teachers modeled faith and excellence."',
+        testi1_who: '— Alumni, 2019',
+        testi2_text: '"We learn to be responsible citizens who care for creation and serve others."',
+        testi2_who: '— Parent',
+        // admissions
+        admissions_title: 'Admissions',
+        admissions_lead: 'Join the STAMA family — we welcome students who want strong academics and formation in faith and character.',
+        admissions_apply: 'Register Now',
+        admissions_brochure: 'Download Brochure',
+        // footer
+        footer_name: 'SMA Santa Maria (STAMA)',
+        footer_contact: 'Jl. Ireda No.19a, Prawirodirjan, Kec. Gondomanan, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55121',
+        footer_links: 'Quick Links',
+        link_vision: 'Vision & Mission',
+        link_admissions: 'Admissions',
+        link_activities: 'Activities',
+        link_contact: 'Contact',
+        footer_follow: 'Follow Us',
+        footer_social: 'Social icons / links — replace with real profiles',
+        footer_copyright: 'SMA Santa Maria Yogyakarta — All rights reserved.'
+      }
+    };
+
+    // --- DOM helpers ---
+    function applyLanguage(lang){
+      const dict = translations[lang] || translations.id;
+      // set html lang attribute
+      document.documentElement.lang = dict.htmlLang || lang;
+
+      // update title and meta description
+      if(dict.title) document.title = dict.title;
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if(metaDesc && dict.metaDescription) metaDesc.setAttribute('content', dict.metaDescription);
+
+      // for all elements with data-key attribute replace textContent
+      document.querySelectorAll('[data-key]').forEach(el=>{
+        const key = el.getAttribute('data-key');
+        if(dict[key] !== undefined){
+          // preserve innerHTML for some elements? We use textContent to be safe
+          el.textContent = dict[key];
+        }
+      });
+
+      // update hero image alt text for accessibility
+      const heroAlt = lang === 'en'
+        ? 'Santa Maria school building'
+        : 'Gedung SMA Santa Maria';
+      const heroImg = document.getElementById('hero-img-alt');
+      if(heroImg) heroImg.alt = heroAlt;
+
+      // update active language button styles and aria-pressed
+      document.querySelectorAll('.lang-btn').forEach(btn=>{
+        const bLang = btn.getAttribute('data-lang');
+        if(bLang === lang){
+          btn.classList.add('active');
+          btn.setAttribute('aria-pressed','true');
+        } else {
+          btn.classList.remove('active');
+          btn.setAttribute('aria-pressed','false');
+        }
+      });
+
+      // save choice
+      try{ localStorage.setItem('site_lang', lang); } catch(e){}
+    }
+
+    // initialize (default: id)
+    (function initLang(){
+      const saved = (function(){ try{ return localStorage.getItem('site_lang'); } catch(e){ return null; } })();
+      const defaultLang = saved || 'id';
+      applyLanguage(defaultLang);
+
+      // wire language buttons
+      document.querySelectorAll('.lang-btn').forEach(btn=>{
+        btn.addEventListener('click', function(){
+          const lang = this.getAttribute('data-lang');
+          applyLanguage(lang);
+        });
+      });
+    })();
+
+  </script>
+</body>
+</html>
