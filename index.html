@@ -78,9 +78,63 @@
     .why-list{margin-top:14px}
     .why-list ul{padding-left:18px}
 
-    /* Gallery */
+    /* Gallery (original grid kept in case) */
     .gallery{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
     .photo{height:140px; border-radius:10px; overflow:hidden; background:#e7eef5; display:flex;align-items:center;justify-content:center; color:var(--muted); font-weight:700}
+
+    /* Carousel (new styles) */
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(6,24,48,0.12);
+      max-width: 100%;
+      margin-top:12px;
+      background: #f6f9fb;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.6s ease;
+      will-change: transform;
+    }
+    .slide {
+      min-width: 100%;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .slide img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+      border-radius: 10px;
+    }
+    .caption {
+      position:absolute;
+      bottom:10px;left:10px;
+      background:rgba(0,0,0,0.5);
+      color:white;
+      padding:6px 10px;
+      border-radius:6px;
+      font-size:14px;
+      pointer-events: none;
+    }
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(11,79,122,0.6);
+      border: none;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+      padding: 8px 14px;
+      border-radius: 50%;
+      z-index: 10;
+    }
+    .carousel-btn.prev { left: 10px; }
+    .carousel-btn.next { right: 10px; }
+    .carousel-btn:hover { background: rgba(11,79,122,0.9); }
 
     /* Testimonials */
     .testimonials{display:flex; gap:12px; margin-top:12px; flex-wrap:wrap}
@@ -108,6 +162,7 @@
       .mission-grid{grid-template-columns:1fr}
       .gallery{grid-template-columns:1fr}
       .headline{font-size:32px}
+      .slide img{height:200px}
     }
 
     /* small helpers */
@@ -260,11 +315,29 @@
 
         <div style="flex:1;min-width:260px">
           <h3 class="title" data-key="gallery_title">Kehidupan Siswa — Galeri</h3>
-          <div class="gallery" aria-hidden>
-            <div class="photo" data-key="photo1">Kelas</div>
-            <div class="photo" data-key="photo2">Paduan Suara & Seni</div>
-            <div class="photo" data-key="photo3">Lingkungan</div>
+
+          <!-- START: Carousel (replaces previous .gallery grid) -->
+          <div class="carousel" aria-label="Kehidupan Siswa Carousel">
+            <div class="carousel-track">
+              <div class="slide">
+                <img src="imgs/gallery1.jpg" alt="Kelas">
+                <div class="caption" data-key="photo1">Kelas</div>
+              </div>
+              <div class="slide">
+                <img src="imgs/gallery2.jpg" alt="Paduan Suara & Seni">
+                <div class="caption" data-key="photo2">Paduan Suara & Seni</div>
+              </div>
+              <div class="slide">
+                <img src="imgs/gallery3.jpg" alt="Lingkungan">
+                <div class="caption" data-key="photo3">Lingkungan</div>
+              </div>
+            </div>
+
+            <button class="carousel-btn prev" aria-label="Previous slide" type="button">&#10094;</button>
+            <button class="carousel-btn next" aria-label="Next slide" type="button">&#10095;</button>
           </div>
+          <!-- END: Carousel -->
+
         </div>
       </div>
     </section>
@@ -301,8 +374,8 @@
       <h3 class="title" data-key="admissions_title">Penerimaan</h3>
       <p class="lead" data-key="admissions_lead">Bergabunglah dengan keluarga STAMA — kami menyambut siswa yang menginginkan kecakapan akademik dan pembentukan karakter beriman.</p>
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
-        <a class="btn btn-primary" href="#" data-key="admissions_apply">Daftar Sekarang</a>
-        <a class="btn" style="background:transparent;border:2px solid var(--blue);color:var(--blue)" href="#" data-key="admissions_brochure">Unduh Brosur</a>
+        <a class="btn btn-primary" href="admission.html" data-key="admissions_apply">Daftar Sekarang</a>
+        <a class="btn" style="background:transparent;border:2px solid var(--blue);color:var(--blue)" href="admission.html" data-key="admissions_brochure">Unduh Brosur</a>
       </div>
     </section>
 
@@ -313,7 +386,7 @@
       <div class="footer-grid">
         <div style="flex:1;min-width:220px">
           <strong data-key="footer_name">SMA Santa Maria (STAMA)</strong>
-          <p class="muted" style="margin-top:6px" data-key="footer_contact">Jl. Contoh No.1, Yogyakarta • Tel: (0274) 000000 • email@example.sch.id</p>
+          <p class="muted" style="margin-top:6px" data-key="footer_contact">Jl. Ireda No.19a, Prawirodirjan, Kec. Gondomanan, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55121 • stamajogja@gmail.com</p>
         </div>
         <div style="flex:1;min-width:220px">
           <strong data-key="footer_links">Tautan Cepat</strong>
@@ -395,9 +468,9 @@
         why_li4: 'Ekstrakurikuler aktif: seni, olahraga, lingkungan, dan pelayanan.',
         why_li5: 'Jaringan alumni kuat dan prestasi siswa.',
         gallery_title: 'Kehidupan Siswa — Galeri',
-        photo1: 'Kelas',
-        photo2: 'Paduan Suara & Seni',
-        photo3: 'Lingkungan',
+        photo1: 'Camping Rohani',
+        photo2: 'Live In',
+        photo3: 'Cooking',
         // events
         events_title: 'Kegiatan & Berita',
         event1_title: 'Pameran Sains 2025',
@@ -471,9 +544,9 @@
         why_li4: 'Active extracurriculars: arts, sports, environment, and service clubs.',
         why_li5: 'Strong alumni network and student achievements.',
         gallery_title: 'Student Life — Gallery',
-        photo1: 'Classroom',
-        photo2: 'Choir & Arts',
-        photo3: 'Environment',
+        photo1: 'Camping Rohani',
+        photo2: 'Live In',
+        photo3: 'Cooking',
         // events
         events_title: 'Events & News',
         event1_title: 'Science Fair 2025',
@@ -564,5 +637,80 @@
     })();
 
   </script>
+
+  <!-- Carousel logic (kept separate to avoid touching translation logic above) -->
+  <script>
+    (function(){
+      const track = document.querySelector('.carousel-track');
+      if(!track) return;
+
+      const slides = Array.from(track.children);
+      const nextBtn = document.querySelector('.carousel-btn.next');
+      const prevBtn = document.querySelector('.carousel-btn.prev');
+      let currentIndex = 0;
+      let autoplayTimer = null;
+      const AUTOPLAY_MS = 5000;
+
+      function updateCarousel() {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      }
+
+      function goNext(){
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateCarousel();
+      }
+      function goPrev(){
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateCarousel();
+      }
+
+      if(nextBtn) nextBtn.addEventListener('click', ()=> { goNext(); resetAutoplay(); });
+      if(prevBtn) prevBtn.addEventListener('click', ()=> { goPrev(); resetAutoplay(); });
+
+      // autoplay
+      function startAutoplay(){
+        stopAutoplay();
+        autoplayTimer = setInterval(()=>{ goNext(); }, AUTOPLAY_MS);
+      }
+      function stopAutoplay(){
+        if(autoplayTimer) { clearInterval(autoplayTimer); autoplayTimer = null; }
+      }
+      function resetAutoplay(){ startAutoplay(); }
+
+      // pause on hover/focus
+      const carousel = document.querySelector('.carousel');
+      if(carousel){
+        carousel.addEventListener('mouseenter', stopAutoplay);
+        carousel.addEventListener('mouseleave', startAutoplay);
+        carousel.addEventListener('focusin', stopAutoplay);
+        carousel.addEventListener('focusout', startAutoplay);
+      }
+
+      // basic touch support (swipe)
+      let touchStartX = 0;
+      let touchEndX = 0;
+      track.addEventListener('touchstart', function(e){
+        stopAutoplay();
+        touchStartX = e.touches[0].clientX;
+      }, {passive: true});
+      track.addEventListener('touchmove', function(e){
+        touchEndX = e.touches[0].clientX;
+      }, {passive: true});
+      track.addEventListener('touchend', function(){
+        const dx = touchEndX - touchStartX;
+        const threshold = 40; // px
+        if(Math.abs(dx) > threshold){
+          if(dx < 0) goNext();
+          else goPrev();
+        }
+        startAutoplay();
+      });
+
+      // init
+      updateCarousel();
+      startAutoplay();
+    })();
+  </script>
+
 </body>
 </html>
