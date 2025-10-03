@@ -34,8 +34,9 @@
       background-blend-mode: overlay;
       color:var(--ivory);
       padding-bottom:18px;
+      position: relative;
     }
-    .topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 0;position:relative}
     .brand{display:flex;align-items:center;gap:12px}
     .logo{ width:56px; height:56px; border-radius:8px; background:var(--ivory); display:flex; align-items:center; justify-content:center; box-shadow:0 4px 14px rgba(2,18,32,0.25); overflow:hidden;}
     .logo img{width:80%;height:80%;object-fit:contain;display:block}
@@ -47,6 +48,32 @@
     .lang-toggle{display:flex; gap:8px; align-items:center}
     .lang-btn{background:transparent;border:2px solid rgba(255,255,255,0.12);color:var(--ivory);padding:6px 10px;border-radius:8px;cursor:pointer;font-weight:700}
     .lang-btn.active{background:var(--ivory); color:var(--blue); border-color:transparent}
+
+    /* mobile menu */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 28px;
+      color: var(--ivory);
+      cursor: pointer;
+    }
+    @media (max-width:900px){
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: var(--blue);
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        padding: 12px;
+        border-radius: 8px;
+        width: 180px;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+      }
+      nav ul.show { display: flex; }
+      .menu-toggle { display: block; }
+    }
 
     /* hero */
     .hero{padding:48px 0 28px; display:block}
@@ -103,6 +130,7 @@
 
       <div style="display:flex;align-items:center;gap:18px">
         <nav aria-label="Primary navigation">
+          <button class="menu-toggle" id="menu-toggle">☰</button>
           <ul>
             <li><a href="index.html" data-key="nav_home">Beranda</a></li>
             <li><a href="index.html#vision" data-key="nav_vision">Visi & Misi</a></li>
@@ -118,13 +146,14 @@
       </div>
     </div>
 
+    <!-- hero as before -->
     <div class="container">
       <div class="hero">
         <div class="hero-inner">
           <div class="hero-left">
             <span class="eyebrow" data-key="eyebrow">Penerimaan Peserta Didik Baru</span>
             <h2 class="headline" data-key="headline">Daftar ke SMA Santa Maria — Mulai Perjalananmu</h2>
-            <p class="sub" data-key="sub">Informasi pendaftaran, persyaratan, alur seleksi, jadwal, dan formulir pendaftaran online. Gunakan tombol “Daftar Sekarang” untuk mulai mengisi formulir setelah membaca brosur.</p>
+            <p class="sub" data-key="sub">Informasi pendaftaran, persyaratan, alur seleksi, jadwal, dan formulir pendaftaran online.</p>
             <div class="hero-ctas">
               <button id="btn-toggle-mode" class="btn btn-primary" data-mode="brosur">Daftar Sekarang</button>
               <a class="btn btn-outline" id="btn-download-brosur" href="#" download>Unduh Brosur (PDF)</a>
@@ -132,17 +161,8 @@
           </div>
 
           <div class="hero-right hero-card" aria-hidden="true" id="hero-right">
-            <!-- hero-right content toggles depending on mode, starts minimal -->
-            <div id="hr-brosur" class="">
-              <h4>Ringkasan Brosur</h4>
-              <p class="muted-small">Lihat brosur resmi sekolah di panel utama untuk informasi lengkap. Klik "Daftar Sekarang" untuk mengisi formulir pendaftaran.</p>
-            </div>
-            <div id="hr-form" class="hidden">
-              <h4>Kontak Panitia</h4>
-              <p class="muted-small">Ibu Astuti — <a id="wa-link-hero" class="contact-link" href="https://wa.me/6287738555566" target="_blank" rel="noopener"><span class="wa-badge">WhatsApp</span> 0877-3855-5566</a></p>
-              <p class="muted-small">Tel sekolah: (0274) 375146</p>
-              <p class="muted-small">Email: stamajogja@gmail.com</p>
-            </div>
+            <div id="hr-brosur"><h4>Ringkasan Brosur</h4><p class="muted-small">Lihat brosur resmi sekolah...</p></div>
+            <div id="hr-form" class="hidden"><h4>Kontak Panitia</h4><p class="muted-small">Ibu Astuti — <a id="wa-link-hero" class="contact-link" href="https://wa.me/6287738555566" target="_blank"><span class="wa-badge">WhatsApp</span> 0877-3855-5566</a></p></div>
           </div>
         </div>
       </div>
@@ -461,7 +481,6 @@
 
           <div style="margin-top:14px">
             <h4 style="margin:0 0 8px">Brosur & Formulir</h4>
-            <a class="btn btn-outline" id="download-pdf" href="assets/brosur.pdf" download>Unduh Formulir (PDF)</a>
           </div>
 
           <!-- removed 'Perlu Bantuan' block per request -->
@@ -667,5 +686,12 @@
       if(waHero) waHero.href = "https://wa.me/" + waNumber;
     })();
   </script>
+    <script>
+    // mobile menu toggle
+    const menuToggle=document.getElementById('menu-toggle');
+    const navMenu=document.querySelector('nav ul');
+    if(menuToggle){menuToggle.addEventListener('click',()=>{navMenu.classList.toggle('show');});}
+  </script>
+  
 </body>
 </html>
