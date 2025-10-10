@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>SMA Santa Maria Yogyakarta (STAMA) — Penerimaan</title>
   <link rel="icon" type="image/svg+xml" href="icons/logostamayk.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="icons/logostamayk-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="icons/logostamayk-16.png">
   <meta name="description" content="Informasi pendaftaran & formulir online PPDB SMA Santa Maria Yogyakarta." />
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -26,7 +24,6 @@
     a{color:inherit; text-decoration:none}
     .container{max-width:var(--max-width); margin:0 auto; padding:0 20px}
 
-    /* header */
     header{
       background:
         linear-gradient(180deg, rgba(11,79,122,0.86) 0%, rgba(11,79,122,0.72) 45%, rgba(11,79,122,0.60) 100%),
@@ -52,7 +49,6 @@
     .lang-btn{background:transparent;border:2px solid rgba(255,255,255,0.12);color:var(--ivory);padding:6px 10px;border-radius:8px;cursor:pointer;font-weight:700}
     .lang-btn.active{background:var(--ivory); color:var(--blue); border-color:transparent}
 
-    /* mobile menu */
     .menu-toggle {
       display: none;
       background: none;
@@ -78,18 +74,15 @@
       .menu-toggle { display: block; }
     }
 
-    /* Center form card */
-#form-mode, #brosur-mode {
-  max-width: 100%;
-  margin: 0 auto;      /* biar selalu center */
-}
+    #form-mode, #brosur-mode {
+      max-width: 100%;
+      margin: 0 auto;
+    }
 
-/* Hapus margin tambahan supaya tidak geser */
-#form-mode {
-  margin-top: 0 !important;
-}
+    #form-mode {
+      margin-top: 0 !important;
+    }
 
-    /* hero */
     .hero{padding:48px 0 28px; display:block}
     .hero-inner{display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap}
     .hero-left{flex:1;min-width:260px}
@@ -102,7 +95,6 @@
     .hero-card h4{margin:0 0 8px;color:var(--ivory)}
     .hero-card p{color:rgba(255,255,255,0.9);margin:0;font-size:14px}
 
-    /* layout */
     main{padding:28px 0}
     .grid{display:grid;grid-template-columns:2fr 1fr;gap:22px}
     .card{background:white;padding:18px;border-radius:12px;box-shadow:var(--card-shadow)}
@@ -110,13 +102,11 @@
     .muted{color:var(--muted)}
     .lead{color:var(--muted);font-size:15px;line-height:1.6}
 
-    /* brochure viewer */
     .brosur-frame{
       width:100%; height:520px; border:1px solid rgba(6,24,48,0.06); border-radius:8px; overflow:hidden;
     }
     .hidden{display:none !important}
 
-    /* responsive */
     @media (max-width:900px){
       .grid{grid-template-columns:1fr}
       .hero-inner{flex-direction:column-reverse}
@@ -125,10 +115,19 @@
       .brosur-frame{height:420px}
     }
 
-    /* small helpers */
     .muted-small{color:var(--muted);font-size:13px}
+    .field-note{color:var(--muted);font-size:13px;font-style:italic}
     .contact-link{display:inline-flex;gap:8px;align-items:center}
     .wa-badge{background:#25D366;color:white;padding:6px 10px;border-radius:8px;font-weight:700}
+    .required::after {
+      content: " *";
+      color: #ef4444;
+    }
+    .btn{display:inline-block;padding:10px 20px;border-radius:8px;font-weight:600;cursor:pointer;border:none;transition:all 0.2s}
+    .btn-primary{background:linear-gradient(90deg,#2563eb,#3b82f6);color:white}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(37,99,235,0.3)}
+    .btn-outline{background:white;border:2px solid var(--blue);color:var(--blue)}
+    .btn-outline:hover{background:var(--blue);color:white}
   </style>
 </head>
 <body>
@@ -154,13 +153,12 @@
         </nav>
 
         <div class="lang-toggle" role="tablist" aria-label="Language switch">
-          <button class="lang-btn" id="btn-id" data-lang="id" aria-pressed="true">ID</button>
+          <button class="lang-btn active" id="btn-id" data-lang="id" aria-pressed="true">ID</button>
           <button class="lang-btn" id="btn-en" data-lang="en" aria-pressed="false">EN</button>
         </div>
       </div>
     </div>
 
-    <!-- hero as before -->
     <div class="container">
       <div class="hero">
         <div class="hero-inner">
@@ -170,7 +168,7 @@
             <p class="sub" data-key="sub">Informasi pendaftaran, persyaratan, alur seleksi, jadwal, dan formulir pendaftaran online.</p>
             <div class="hero-ctas">
               <button id="btn-toggle-mode" class="btn btn-primary" data-mode="brosur">Daftar Sekarang</button>
-              <a class="btn btn-outline" id="btn-download-brosur" href="#" download>Unduh Brosur (PDF)</a>
+              <a class="btn btn-outline" id="btn-download-brosur" href="assets/brosur.pdf" download>Unduh Brosur (PDF)</a>
             </div>
           </div>
 
@@ -190,7 +188,6 @@
           <h3 class="title">Brosur Pendaftaran</h3>
           <p class="muted">Baca brosur resmi terlebih dahulu. Setelah siap, klik "Daftar Sekarang" untuk beralih ke formulir.</p>
 
-          <!-- Brochure viewer (PDF embedded). Replace path if needed -->
           <div class="brosur-frame" id="brosur-viewer">
             <iframe id="brosur-iframe" src="assets/brosur.pdf" title="Brosur PPDB SMA Santa Maria" style="width:100%;height:100%;border:0"></iframe>
           </div>
@@ -201,16 +198,12 @@
           </div>
         </div>
 
-        <!-- Form card (hidden initially) -->
         <div class="card hidden" id="form-mode">
           <h3 class="title">Formulir Pendaftaran (PPDB)</h3>
           <p class="muted">Isi formulir berikut. Ketika selesai Anda dapat mengunduh salinan atau menunggu konfirmasi panitia.</p>
 
-          <!-- BEGIN: Your original form (kept intact) -->
-          <!-- Keep the form's id admissionForm so scripts still work -->
-<form id="admissionForm" class="space-y-6 bg-white p-6 rounded-2xl shadow">
+<form id="admissionForm" class="space-y-6 bg-white p-6 rounded-2xl">
 
-  <!-- === Informasi Dasar === -->
   <section>
     <h2 class="text-lg font-medium mb-3">Informasi Dasar</h2>
     <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem">
@@ -223,12 +216,14 @@
         </select>
       </div>
       <div>
-        <label class="required block mb-1">NISN (atau -)</label>
-        <input name="nisn" required class="w-full border rounded px-3 py-2"/>
+        <label class="required block mb-1">NISN</label>
+        <p class="field-note mb-1">Tulis "-" apabila tidak tahu</p>
+        <input name="nisn" required class="w-full border rounded px-3 py-2" placeholder="Contoh: 1234567890 atau -"/>
       </div>
       <div>
-        <label class="required block mb-1">NIK (atau -)</label>
-        <input name="nik" required class="w-full border rounded px-3 py-2"/>
+        <label class="required block mb-1">NIK</label>
+        <p class="field-note mb-1">Tulis "-" apabila tidak tahu</p>
+        <input name="nik" required class="w-full border rounded px-3 py-2" placeholder="Contoh: 3374012345678901 atau -"/>
       </div>
       <div>
         <label class="required block mb-1">Jenis Kelamin</label>
@@ -240,7 +235,6 @@
     </div>
   </section>
 
-  <!-- === Data Siswa === -->
   <section>
     <h2 class="text-lg font-medium mb-3">Data Siswa</h2>
     <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem">
@@ -281,7 +275,6 @@
     </div>
   </section>
 
-  <!-- === Alamat & Kontak === -->
   <section>
     <h2 class="text-lg font-medium mb-3">Alamat & Kontak</h2>
     <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem">
@@ -289,21 +282,28 @@
       <div><label class="block mb-1">Telepon Rumah</label><input name="telp_rumah_asal" class="w-full border rounded px-3 py-2"/></div>
       <div><label class="block mb-1">Alamat di Yogyakarta</label><input name="alamat_yogyakarta" class="w-full border rounded px-3 py-2"/></div>
       <div><label class="block mb-1">Telepon Rumah (Yogyakarta)</label><input name="telp_rumah_yk" class="w-full border rounded px-3 py-2"/></div>
-      <div><label class="required block mb-1">No HP</label><input name="no_hp" required class="w-full border rounded px-3 py-2"/></div>
-      <div><label class="block mb-1">Email</label><input type="email" name="email" class="w-full border rounded px-3 py-2"/></div>
-      <div><label class="block mb-1">Jarak ke Sekolah</label><input name="jarak_sekolah" class="w-full border rounded px-3 py-2"/></div>
+      <div>
+        <label class="required block mb-1">No HP</label>
+        <p class="field-note mb-1">Tulis "-" apabila tidak tahu</p>
+        <input name="no_hp" required class="w-full border rounded px-3 py-2" placeholder="Contoh: 081234567890 atau -"/>
+      </div>
+      <div>
+        <label class="block mb-1">Email</label>
+        <p class="field-note mb-1">Boleh dikosongkan</p>
+        <input name="email" class="w-full border rounded px-3 py-2" placeholder="contoh@email.com (opsional)"/>
+      </div>
+      <div><label class="block mb-1">Jarak ke Sekolah</label><input name="jarak_sekolah" class="w-full border rounded px-3 py-2" placeholder="Contoh: 5 km"/></div>
       <div><label class="block mb-1">Golongan Darah</label>
         <select name="gol_darah" class="w-full border rounded px-3 py-2">
           <option value="">Pilih</option><option>A</option><option>B</option><option>AB</option><option>O</option><option>Tidak tahu</option>
         </select>
       </div>
-      <div><label class="block mb-1">Berat Badan</label><input type="number" name="berat_badan" class="w-full border rounded px-3 py-2"/></div>
-      <div><label class="block mb-1">Tinggi Badan</label><input type="number" name="tinggi_badan" class="w-full border rounded px-3 py-2"/></div>
-      <div><label class="block mb-1">Riwayat Penyakit</label><input name="riwayat_penyakit" class="w-full border rounded px-3 py-2"/></div>
+      <div><label class="block mb-1">Berat Badan (kg)</label><input type="number" name="berat_badan" class="w-full border rounded px-3 py-2"/></div>
+      <div><label class="block mb-1">Tinggi Badan (cm)</label><input type="number" name="tinggi_badan" class="w-full border rounded px-3 py-2"/></div>
+      <div><label class="block mb-1">Riwayat Penyakit</label><input name="riwayat_penyakit" class="w-full border rounded px-3 py-2" placeholder="Tulis '-' jika tidak ada"/></div>
     </div>
   </section>
 
-  <!-- === Asal Sekolah === -->
   <section>
     <h2 class="text-lg font-medium mb-3">Asal Sekolah</h2>
     <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem">
@@ -312,11 +312,9 @@
     </div>
   </section>
 
-  <!-- === Orang Tua === -->
   <section>
     <h2 class="text-lg font-medium mb-3">Data Orang Tua</h2>
     <div style="display:flex;flex-direction:column;gap:1rem">
-      <!-- Ayah -->
       <div style="background:#f8fafc;padding:1rem;border-radius:8px">
         <h3 class="font-semibold mb-3">Ayah</h3>
         <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem">
@@ -336,13 +334,12 @@
             <label class="block mb-1">Jika 'Lainnya', sebutkan (Ayah)</label>
             <input id="pekerjaan_ayah_lain" name="pekerjaan_ayah_lain" class="w-full border rounded px-3 py-2"/>
           </div>
-          <div><label class="block mb-1">Penghasilan Ayah</label><input name="penghasilan_ayah" class="w-full border rounded px-3 py-2"/></div>
+          <div><label class="block mb-1">Penghasilan Ayah</label><input name="penghasilan_ayah" class="w-full border rounded px-3 py-2" placeholder="Contoh: Rp 5.000.000"/></div>
           <div><label class="block mb-1">Nomor HP Ayah</label><input name="hp_ayah" class="w-full border rounded px-3 py-2"/></div>
-          <div style="grid-column:1 / -1"><label class="block mb-1">Alamat Ayah</label><textarea id="alamat_ayah" name="alamat_ayah" class="w-full border rounded px-3 py-2"></textarea></div>
+          <div style="grid-column:1 / -1"><label class="block mb-1">Alamat Ayah</label><textarea id="alamat_ayah" name="alamat_ayah" class="w-full border rounded px-3 py-2" rows="2"></textarea></div>
         </div>
       </div>
 
-      <!-- Ibu -->
       <div style="background:#f8fafc;padding:1rem;border-radius:8px">
         <h3 class="font-semibold mb-3">Ibu</h3>
         <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem">
@@ -362,102 +359,101 @@
             <label class="block mb-1">Jika 'Lainnya', sebutkan (Ibu)</label>
             <input id="pekerjaan_ibu_lain" name="pekerjaan_ibu_lain" class="w-full border rounded px-3 py-2"/>
           </div>
-          <div><label class="block mb-1">Penghasilan Ibu</label><input name="penghasilan_ibu" class="w-full border rounded px-3 py-2"/></div>
+          <div><label class="block mb-1">Penghasilan Ibu</label><input name="penghasilan_ibu" class="w-full border rounded px-3 py-2" placeholder="Contoh: Rp 5.000.000"/></div>
           <div><label class="block mb-1">Nomor HP Ibu</label><input name="hp_ibu" class="w-full border rounded px-3 py-2"/></div>
-          <div style="grid-column:1 / -1"><label class="block mb-1">Alamat Ibu</label><textarea id="alamat_ibu" name="alamat_ibu" class="w-full border rounded px-3 py-2"></textarea></div>
+          <div style="grid-column:1 / -1"><label class="block mb-1">Alamat Ibu</label><textarea id="alamat_ibu" name="alamat_ibu" class="w-full border rounded px-3 py-2" rows="2"></textarea></div>
           <div style="grid-column:1 / -1; display:flex;align-items:center;gap:8px">
             <input type="checkbox" id="alamat_sama_ayah"/><label for="alamat_sama_ayah" class="field-note">Alamat Ibu sama dengan Ayah</label>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- === Wali === -->
-  <section>
-    <h2 class="text-lg font-medium mb-3">Wali (Jika Ada)</h2>
-    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem">
-      <div><label class="block mb-1">Nama Wali</label><input name="nama_wali" class="w-full border rounded px-3 py-2"/></div>
-      <div><label class="block mb-1">Alamat Wali</label><input name="alamat_wali" class="w-full border rounded px-3 py-2"/></div>
-      <div><label class="block mb-1">Hubungan dengan Anak</label><input name="hubungan_wali" class="w-full border rounded px-3 py-2"/></div>
-      <div><label class="block mb-1">Nomor HP Wali</label><input name="hp_wali" class="w-full border rounded px-3 py-2"/></div>
-    </div>
-  </section>
+      <!-- === Wali === -->
+      <section>
+        <h2 class="text-lg font-medium mb-3">Wali (Jika Ada)</h2>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem">
+          <div><label class="block mb-1">Nama Wali</label><input name="nama_wali" class="w-full border rounded px-3 py-2"/></div>
+          <div><label class="block mb-1">Alamat Wali</label><input name="alamat_wali" class="w-full border rounded px-3 py-2"/></div>
+          <div><label class="block mb-1">Hubungan dengan Anak</label><input name="hubungan_wali" class="w-full border rounded px-3 py-2"/></div>
+          <div><label class="block mb-1">Nomor HP Wali</label><input name="hp_wali" class="w-full border rounded px-3 py-2"/></div>
+        </div>
+      </section>
 
-  <!-- SECTION: Nilai (dalam tabel) -->
-  <section>
-    <h2 class="text-lg font-medium mb-3">Nilai Akademik (Masukkan angka untuk setiap semester)</h2>
-    <p class="muted-small mb-3">Masukkan nilai untuk semua semester: Kelas 7 (Sem 1 & 2), Kelas 8 (Sem 1 & 2), Kelas 9 (Sem 1).</p>
+      <!-- SECTION: Nilai (dalam tabel) -->
+      <section>
+        <h2 class="text-lg font-medium mb-3">Nilai Akademik</h2>
+        <p class="muted-small mb-3">Masukkan nilai untuk semua semester: Kelas 7 (Sem 1 & 2), Kelas 8 (Sem 1 & 2), Kelas 9 (Sem 1). <strong>Tulis "0" atau kosongkan jika tidak tahu.</strong></p>
 
-    <div style="overflow-x:auto">
-      <table style="width:100%;border-collapse:collapse">
-        <thead style="background:#f1f9ff">
-          <tr>
-            <th style="border:1px solid #e6eef7;padding:8px;text-align:left">Mata Pelajaran</th>
-            <th style="border:1px solid #e6eef7;padding:8px;text-align:center">7 - Sem 1</th>
-            <th style="border:1px solid #e6eef7;padding:8px;text-align:center">7 - Sem 2</th>
-            <th style="border:1px solid #e6eef7;padding:8px;text-align:center">8 - Sem 1</th>
-            <th style="border:1px solid #e6eef7;padding:8px;text-align:center">8 - Sem 2</th>
-            <th style="border:1px solid #e6eef7;padding:8px;text-align:center">9 - Sem 1</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- rows omitted for brevity (same as before) -->
-          <tr>
-            <td style="border:1px solid #eee;padding:8px">Matematika</td>
-            <td style="border:1px solid #eee;padding:8px"><input name="nilai_mtk_7_1" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
-            <td style="border:1px solid #eee;padding:8px"><input name="nilai_mtk_7_2" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
-            <td style="border:1px solid #eee;padding:8px"><input name="nilai_mtk_8_1" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
-            <td style="border:1px solid #eee;padding:8px"><input name="nilai_mtk_8_2" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
-            <td style="border:1px solid #eee;padding:8px"><input name="nilai_mtk_9_1" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
-          </tr>
+        <div style="overflow-x:auto">
+          <table style="width:100%;border-collapse:collapse">
+            <thead style="background:#f1f9ff">
+              <tr>
+                <th style="border:1px solid #e6eef7;padding:8px;text-align:left">Mata Pelajaran</th>
+                <th style="border:1px solid #e6eef7;padding:8px;text-align:center">7 - Sem 1</th>
+                <th style="border:1px solid #e6eef7;padding:8px;text-align:center">7 - Sem 2</th>
+                <th style="border:1px solid #e6eef7;padding:8px;text-align:center">8 - Sem 1</th>
+                <th style="border:1px solid #e6eef7;padding:8px;text-align:center">8 - Sem 2</th>
+                <th style="border:1px solid #e6eef7;padding:8px;text-align:center">9 - Sem 1</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="border:1px solid #eee;padding:8px">Matematika</td>
+                <td style="border:1px solid #eee;padding:8px"><input name="nilai_mtk_7_1" type="number" step="0.01" min="0" max="100" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" placeholder="0-100"/></td>
+                <td style="border:1px solid #eee;padding:8px"><input name="nilai_mtk_7_2" type="number" step="0.01" min="0" max="100" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" placeholder="0-100"/></td>
+                <td style="border:1px solid #eee;padding:8px"><input name="nilai_mtk_8_1" type="number" step="0.01" min="0" max="100" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" placeholder="0-100"/></td>
+                <td style="border:1px solid #eee;padding:8px"><input name="nilai_mtk_8_2" type="number" step="0.01" min="0" max="100" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" placeholder="0-100"/></td>
+                <td style="border:1px solid #eee;padding:8px"><input name="nilai_mtk_9_1" type="number" step="0.01" min="0" max="100" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" placeholder="0-100"/></td>
+              </tr>
 
-          <tr>
-            <td style="border:1px solid #eee;padding:8px">Bahasa Inggris</td>
-            <td style="border:1px solid #eee;padding:8px"><input name="nilai_ing_7_1" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
-            <td style="border:1px solid #eee;padding:8px"><input name="nilai_ing_7_2" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
-            <td style="border:1px solid #eee;padding:8px"><input name="nilai_ing_8_1" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
-            <td style="border:1px solid #eee;padding:8px"><input name="nilai_ing_8_2" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
-            <td style="border:1px solid #eee;padding:8px"><input name="nilai_ing_9_1" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
-          </tr>
+              <tr>
+                <td style="border:1px solid #eee;padding:8px">Bahasa Inggris</td>
+                <td style="border:1px solid #eee;padding:8px"><input name="nilai_ing_7_1" type="number" step="0.01" min="0" max="100" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" placeholder="0-100"/></td>
+                <td style="border:1px solid #eee;padding:8px"><input name="nilai_ing_7_2" type="number" step="0.01" min="0" max="100" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" placeholder="0-100"/></td>
+                <td style="border:1px solid #eee;padding:8px"><input name="nilai_ing_8_1" type="number" step="0.01" min="0" max="100" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" placeholder="0-100"/></td>
+                <td style="border:1px solid #eee;padding:8px"><input name="nilai_ing_8_2" type="number" step="0.01" min="0" max="100" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" placeholder="0-100"/></td>
+                <td style="border:1px solid #eee;padding:8px"><input name="nilai_ing_9_1" type="number" step="0.01" min="0" max="100" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" placeholder="0-100"/></td>
+              </tr>
 
-          <tr>
-            <td style="border:1px solid #eee;padding:8px">Bahasa Indonesia</td>
-            <td style="border:1px solid #eee;padding:8px"><input name="nilai_indo_7_1" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
-            <td style="border:1px solid #eee;padding:8px"><input name="nilai_indo_7_2" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
-            <td style="border:1px solid #eee;padding:8px"><input name="nilai_indo_8_1" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
-            <td style="border:1px solid #eee;padding:8px"><input name="nilai_indo_8_2" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
-            <td style="border:1px solid #eee;padding:8px"><input name="nilai_indo_9_1" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
-          </tr>
+              <tr>
+                <td style="border:1px solid #eee;padding:8px">Bahasa Indonesia</td>
+                <td style="border:1px solid #eee;padding:8px"><input name="nilai_indo_7_1" type="number" step="0.01" min="0" max="100" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" placeholder="0-100"/></td>
+                <td style="border:1px solid #eee;padding:8px"><input name="nilai_indo_7_2" type="number" step="0.01" min="0" max="100" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" placeholder="0-100"/></td>
+                <td style="border:1px solid #eee;padding:8px"><input name="nilai_indo_8_1" type="number" step="0.01" min="0" max="100" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" placeholder="0-100"/></td>
+                <td style="border:1px solid #eee;padding:8px"><input name="nilai_indo_8_2" type="number" step="0.01" min="0" max="100" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" placeholder="0-100"/></td>
+                <td style="border:1px solid #eee;padding:8px"><input name="nilai_indo_9_1" type="number" step="0.01" min="0" max="100" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" placeholder="0-100"/></td>
+              </tr>
 
-          <tr>
-            <td style="border:1px solid #eee;padding:8px">IPA</td>
-            <td style="border:1px solid #eee;padding:8px"><input name="nilai_ipa_7_1" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
-            <td style="border:1px solid #eee;padding:8px"><input name="nilai_ipa_7_2" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
-            <td style="border:1px solid #eee;padding:8px"><input name="nilai_ipa_8_1" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
-            <td style="border:1px solid #eee;padding:8px"><input name="nilai_ipa_8_2" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
-            <td style="border:1px solid #eee;padding:8px"><input name="nilai_ipa_9_1" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
-          </tr>
+              <tr>
+                <td style="border:1px solid #eee;padding:8px">IPA</td>
+                <td style="border:1px solid #eee;padding:8px"><input name="nilai_ipa_7_1" type="number" step="0.01" min="0" max="100" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" placeholder="0-100"/></td>
+                <td style="border:1px solid #eee;padding:8px"><input name="nilai_ipa_7_2" type="number" step="0.01" min="0" max="100" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" placeholder="0-100"/></td>
+                <td style="border:1px solid #eee;padding:8px"><input name="nilai_ipa_8_1" type="number" step="0.01" min="0" max="100" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" placeholder="0-100"/></td>
+                <td style="border:1px solid #eee;padding:8px"><input name="nilai_ipa_8_2" type="number" step="0.01" min="0" max="100" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" placeholder="0-100"/></td>
+                <td style="border:1px solid #eee;padding:8px"><input name="nilai_ipa_9_1" type="number" step="0.01" min="0" max="100" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" placeholder="0-100"/></td>
+              </tr>
 
-          <tr>
-            <td style="border:1px solid #eee;padding:8px">IPS</td>
-            <td style="border:1px solid #eee;padding:8px"><input name="nilai_ips_7_1" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
-            <td style="border:1px solid #eee;padding:8px"><input name="nilai_ips_7_2" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
-            <td style="border:1px solid #eee;padding:8px"><input name="nilai_ips_8_1" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
-            <td style="border:1px solid #eee;padding:8px"><input name="nilai_ips_8_2" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
-            <td style="border:1px solid #eee;padding:8px"><input name="nilai_ips_9_1" type="number" step="0.01" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" /></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
+              <tr>
+                <td style="border:1px solid #eee;padding:8px">IPS</td>
+                <td style="border:1px solid #eee;padding:8px"><input name="nilai_ips_7_1" type="number" step="0.01" min="0" max="100" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" placeholder="0-100"/></td>
+                <td style="border:1px solid #eee;padding:8px"><input name="nilai_ips_7_2" type="number" step="0.01" min="0" max="100" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" placeholder="0-100"/></td>
+                <td style="border:1px solid #eee;padding:8px"><input name="nilai_ips_8_1" type="number" step="0.01" min="0" max="100" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" placeholder="0-100"/></td>
+                <td style="border:1px solid #eee;padding:8px"><input name="nilai_ips_8_2" type="number" step="0.01" min="0" max="100" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" placeholder="0-100"/></td>
+                <td style="border:1px solid #eee;padding:8px"><input name="nilai_ips_9_1" type="number" step="0.01" min="0" max="100" style="width:100%;padding:6px;border:1px solid #e2e8f0;border-radius:6px" placeholder="0-100"/></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-  <!-- === Prestasi === -->
-  <section>
-    <h2 class="text-lg font-medium mb-3">Prestasi Non Akademik</h2>
-    <textarea name="prestasi_non_akademik" rows="3" class="w-full border rounded px-3 py-2"></textarea>
-  </section>
+      <!-- === Prestasi === -->
+      <section>
+        <h2 class="text-lg font-medium mb-3">Prestasi Non Akademik</h2>
+        <p class="field-note mb-2">Tulis "-" jika tidak ada prestasi</p>
+        <textarea name="prestasi_non_akademik" rows="3" class="w-full border rounded px-3 py-2" placeholder="Contoh: Juara 1 Lomba Melukis Tingkat Kota 2024"></textarea>
+      </section>
 
   <!-- Submit -->
   <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
